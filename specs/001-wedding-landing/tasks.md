@@ -28,15 +28,15 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Astro project with TypeScript in repository root
-- [ ] T002 [P] Install dependencies: astro, react, react-dom, @astrojs/react, @astrojs/tailwind, tailwindcss, typescript
-- [ ] T003 [P] Install dev dependencies: @playwright/test, vitest
-- [ ] T004 [P] Configure TypeScript strict mode in tsconfig.json
-- [ ] T005 [P] Configure Astro for static output and React integration in astro.config.mjs
-- [ ] T006 Create project directory structure: src/components/, src/pages/, src/layouts/, src/config/, src/styles/, src/assets/images/, src/assets/icons/, public/fonts/, public/qr-codes/, tests/visual/, tests/unit/
-- [ ] T007 [P] Configure Tailwind with design tokens in tailwind.config.mjs (colors: brand.darkGreen #0A3428, brand.eucalyptus #106552, brand.burgundy #640405, brand.linen #F9F2E8, brand.terracotta #C6572A, brand.navy #2A3354; fontFamily: lato; screens: mobile 375px, tablet 800px, web 1200px)
-- [ ] T008 [P] Create global styles with smooth scroll behavior in src/styles/global.css
-- [ ] T009 [P] Create centralized external links configuration in src/config/links.ts with ExternalLinks interface (spotify.playlistUrl, contact.whatsappUrl, contact.telegramUrl, maps.embedUrl, maps.directionsUrl, photos.qrDestinationUrl, photos.alternativeLinkUrl, rsvp.pageUrl)
+- [x] T001 Initialize Astro project with TypeScript in repository root
+- [x] T002 [P] Install dependencies: astro, react, react-dom, @astrojs/react, @astrojs/tailwind, tailwindcss, typescript
+- [x] T003 [P] Install dev dependencies: @playwright/test, vitest
+- [x] T004 [P] Configure TypeScript strict mode in tsconfig.json
+- [x] T005 [P] Configure Astro for static output and React integration in astro.config.mjs
+- [x] T006 Create project directory structure: src/components/, src/pages/, src/layouts/, src/config/, src/styles/, src/assets/images/, src/assets/icons/, public/fonts/, public/qr-codes/, tests/visual/, tests/unit/
+- [x] T007 [P] Configure Tailwind with design tokens in tailwind.config.mjs (colors: brand.darkGreen #0A3428, brand.eucalyptus #106552, brand.burgundy #640405, brand.linen #F9F2E8, brand.terracotta #C6572A, brand.navy #2A3354; fontFamily: lato; screens: mobile 375px, tablet 800px, web 1200px)
+- [x] T008 [P] Create global styles with smooth scroll behavior in src/styles/global.css
+- [x] T009 [P] Create centralized external links configuration in src/config/links.ts with ExternalLinks interface (spotify.playlistUrl, contact.whatsappUrl, contact.telegramUrl, maps.embedUrl, maps.directionsUrl, photos.qrDestinationUrl, photos.alternativeLinkUrl, rsvp.pageUrl)
 
 ---
 
@@ -46,12 +46,12 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T010 Extract images from Figma (file qwrm6VDQhaEODfbkZfQ6Kk, nodes 10:197, 11:1176, 11:1017) and save to src/assets/images/ in WebP format at 1x, 2x, 3x resolutions
-- [ ] T011 [P] Extract icons from Figma and save to src/assets/icons/ in SVG format
-- [ ] T012 [P] Generate QR codes for Spotify playlist (https://open.spotify.com/playlist/6qJUsnH0MfqoR6q5gUMJi5), /rsvp page, and photos link; save to public/qr-codes/ as spotify-qr.png, rsvp-qr.png, photos-qr.png
-- [ ] T013 [P] Create base Layout component in src/layouts/Layout.astro with meta tags, font loading, and global styles import
-- [ ] T014 [P] Create reusable Button component in src/components/Button.tsx matching Figma button states (default, hover) with target="\_blank" rel="noopener noreferrer" for external links
-- [ ] T015 Configure Playwright for visual regression testing in tests/visual/ with baseline screenshots from Figma
+- [ ] T010 Extract images from Figma (file qwrm6VDQhaEODfbkZfQ6Kk, nodes 10:197, 11:1176, 11:1017) and save to src/assets/images/ in WebP format at 1x, 2x, 3x resolutions [MANUAL - See src/assets/images/README.md]
+- [ ] T011 [P] Extract icons from Figma and save to src/assets/icons/ in SVG format [MANUAL - See src/assets/icons/README.md]
+- [ ] T012 [P] Generate QR codes for Spotify playlist (https://open.spotify.com/playlist/6qJUsnH0MfqoR6q5gUMJi5), /rsvp page, and photos link; save to public/qr-codes/ as spotify-qr.png, rsvp-qr.png, photos-qr.png [MANUAL - See public/qr-codes/README.md]
+- [x] T013 [P] Create base Layout component in src/layouts/Layout.astro with meta tags, font loading, and global styles import
+- [x] T014 [P] Create reusable Button component in src/components/Button.tsx matching Figma button states (default, hover) with target="\_blank" rel="noopener noreferrer" for external links
+- [x] T015 Configure Playwright for visual regression testing in tests/visual/ with baseline screenshots from Figma
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -65,14 +65,14 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 
 ### Implementation for User Story 1
 
-- [ ] T016 [P] [US1] Create Hero section component in src/components/Hero.tsx matching Figma node 10:197 (web), 11:1176 (tablet), 11:1017 (mobile) with responsive images using Astro Image component
-- [ ] T017 [P] [US1] Create Detalles section component in src/components/Detalles.tsx with Cuándo/Dónde/Dress Code subsections and Google Maps iframe embed using maps.embedUrl from config
-- [ ] T018 [P] [US1] Create GiftList section component in src/components/GiftList.tsx matching Figma design
-- [ ] T019 [P] [US1] Create Fotos & Temaikenes section component in src/components/Fotos.tsx with Spotify button (using spotify.playlistUrl from config), QR code image, and "este link" alternative text link
-- [ ] T020 [P] [US1] Create Asistencia section component in src/components/Asistencia.tsx with WhatsApp/Telegram buttons (using contact URLs from config), RSVP QR code, and link to /rsvp
-- [ ] T021 [P] [US1] Create Gracias section component in src/components/Gracias.tsx matching Figma design
-- [ ] T022 [US1] Create home page in src/pages/index.astro composing all 6 section components with proper anchor IDs (hero, detalles, gift-list, fotos, asistencia, gracias)
-- [ ] T023 [US1] Add Playwright visual regression test in tests/visual/home.spec.ts comparing rendered output to Figma screenshots at mobile/tablet/web breakpoints
+- [x] T016 [P] [US1] Create Hero section component in src/components/Hero.tsx matching Figma node 10:197 (web), 11:1176 (tablet), 11:1017 (mobile) with responsive images using Astro Image component
+- [x] T017 [P] [US1] Create Detalles section component in src/components/Detalles.tsx with Cuándo/Dónde/Dress Code subsections and Google Maps iframe embed using maps.embedUrl from config
+- [x] T018 [P] [US1] Create GiftList section component in src/components/GiftList.tsx matching Figma design
+- [x] T019 [P] [US1] Create Fotos & Temaikenes section component in src/components/Fotos.tsx with Spotify button (using spotify.playlistUrl from config), QR code image, and "este link" alternative text link
+- [x] T020 [P] [US1] Create Asistencia section component in src/components/Asistencia.tsx with WhatsApp/Telegram buttons (using contact URLs from config), RSVP QR code, and link to /rsvp
+- [x] T021 [P] [US1] Create Gracias section component in src/components/Gracias.tsx matching Figma design
+- [x] T022 [US1] Create home page in src/pages/index.astro composing all 6 section components with proper anchor IDs (hero, detalles, gift-list, fotos, asistencia, gracias)
+- [x] T023 [US1] Add Playwright visual regression test in tests/visual/home.spec.ts comparing rendered output to Figma screenshots at mobile/tablet/web breakpoints
 - [ ] T024 [US1] Verify all images use Astro Image component with appropriate loading strategy (eager for hero, lazy for below-fold)
 - [ ] T025 [US1] Verify all external links use target="\_blank" rel="noopener noreferrer"
 
@@ -88,10 +88,10 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 
 ### Implementation for User Story 2
 
-- [ ] T026 [US2] Create Nav component in src/components/Nav.tsx as React island with navigation items (Detalles #detalles, Gift List #gift-list, Fotos & Temaikenes #fotos, Asistencia #asistencia, Volver al inicio #hero)
-- [ ] T027 [US2] Implement mobile menu toggle in Nav.tsx using useState for isMenuOpen state with hamburger button and responsive menu display
-- [ ] T028 [US2] Add Nav component to Layout.astro with client:idle hydration directive
-- [ ] T029 [US2] Verify smooth scroll behavior works via CSS scroll-behavior: smooth in global.css
+- [x] T026 [US2] Create Nav component in src/components/Nav.tsx as React island with navigation items (Detalles #detalles, Gift List #gift-list, Fotos & Temaikenes #fotos, Asistencia #asistencia, Volver al inicio #hero)
+- [x] T027 [US2] Implement mobile menu toggle in Nav.tsx using useState for isMenuOpen state with hamburger button and responsive menu display
+- [x] T028 [US2] Add Nav component to Layout.astro with client:idle hydration directive
+- [x] T029 [US2] Verify smooth scroll behavior works via CSS scroll-behavior: smooth in global.css
 - [ ] T030 [US2] Test navigation on mobile viewport (375px) to ensure menu toggle works and links scroll correctly
 - [ ] T031 [US2] Verify navigation links scroll to correct section within 1 second per SC-002
 
@@ -130,7 +130,7 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 - [ ] T039 [US4] Test WhatsApp button opens WhatsApp with correct contact on mobile devices per SC-005
 - [ ] T040 [US4] Test Telegram button opens Telegram with correct contact on mobile devices per SC-005
 - [ ] T041 [US4] Update contact URLs in src/config/links.ts and verify buttons reflect new URLs after rebuild per acceptance scenario 4
-- [ ] T042 [US4] Create unit test in tests/unit/config.test.ts to validate all URLs in externalLinks are valid HTTPS format
+- [x] T042 [US4] Create unit test in tests/unit/config.test.ts to validate all URLs in externalLinks are valid HTTPS format
 
 **Checkpoint**: User Story 4 complete - WhatsApp/Telegram contact buttons functional with configurable URLs
 
@@ -144,12 +144,12 @@ description: "Implementation tasks for Wedding Landing Page (V1 Static)"
 
 ### Implementation for User Story 5
 
-- [ ] T043 [US5] Create placeholder RSVP page in src/pages/rsvp.astro with Layout component
-- [ ] T044 [US5] Add "Confirmación de Asistencia" heading and "Próximamente disponible" message to rsvp.astro
-- [ ] T045 [US5] Add "Mientras tanto, podés confirmar por:" text with WhatsApp and Telegram Button components using contact URLs from config
-- [ ] T046 [US5] Verify rsvp.astro maintains visual consistency with rest of site (same Layout, design tokens)
-- [ ] T047 [US5] Verify /rsvp page does NOT include any form elements or data submission functionality per FR-010
-- [ ] T048 [US5] Add Playwright test in tests/visual/rsvp.spec.ts to verify placeholder message and fallback CTAs are visible
+- [x] T043 [US5] Create placeholder RSVP page in src/pages/rsvp.astro with Layout component
+- [x] T044 [US5] Add "Confirmación de Asistencia" heading and "Próximamente disponible" message to rsvp.astro
+- [x] T045 [US5] Add "Mientras tanto, podés confirmar por:" text with WhatsApp and Telegram Button components using contact URLs from config
+- [x] T046 [US5] Verify rsvp.astro maintains visual consistency with rest of site (same Layout, design tokens)
+- [x] T047 [US5] Verify /rsvp page does NOT include any form elements or data submission functionality per FR-010
+- [x] T048 [US5] Add Playwright test in tests/visual/rsvp.spec.ts to verify placeholder message and fallback CTAs are visible
 - [ ] T049 [US5] Test RSVP QR code (created in T012) correctly links to /rsvp page
 
 **Checkpoint**: All user stories complete - site has all sections, navigation, external integrations, and placeholder RSVP

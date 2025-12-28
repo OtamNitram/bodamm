@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav';
+import Hero from '../components/Hero';
+import Detalles from '../components/Detalles';
+import GiftList from '../components/GiftList';
+import Fotos from '../components/Fotos';
+import Asistencia from '../components/Asistencia';
+import Gracias from '../components/Gracias';
+---
+
+<Layout title="Casamiento - [Nombres]">
+  <Nav client:idle />
+  <Hero client:load />
+  <Detalles client:load />
+  <GiftList client:load />
+  <Fotos client:load />
+  <Asistencia client:load />
+  <Gracias client:load />
+</Layout>
