@@ -1,4 +1,4 @@
-import patternLeft from "../assets/images/pattern-left.png";
+import patternLeft from "../assets/images/pattern-left.webp";
 import Fotos from "./Fotos";
 import Asistencia from "./Asistencia";
 

@@ -1,10 +1,13 @@
+import graciasBg from "../assets/images/gracias-bg.webp";
+
 export default function Gracias() {
   return (
     <section id="gracias" className="relative h-[500px] overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="https://www.figma.com/api/mcp/asset/705397e4-206a-4fc4-b678-a2e4bf312c47"
-          alt=""
+          src={graciasBg.src}
+          alt="Gracias background"
+          loading="lazy"
           className="absolute w-full h-[135%] top-[-12.45%] left-0 object-cover"
         />
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)]" />

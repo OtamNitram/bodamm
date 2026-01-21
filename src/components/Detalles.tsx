@@ -1,4 +1,8 @@
 import { externalLinks } from "../config/links";
+import patternRight from "../assets/images/pattern-right.webp";
+import iconCalendar from "../assets/images/icon-calendar.svg";
+import iconLocation from "../assets/images/icon-location.svg";
+import iconDresscode from "../assets/images/icon-dresscode.svg";
 
 export default function Detalles() {
   return (
@@ -9,7 +13,7 @@ export default function Detalles() {
       {/* Decorative Pattern - Only visible on larger screens */}
       <div className="hidden lg:block absolute right-0 top-[-529px] w-[736px] h-[1026px] opacity-20">
         <img
-          src="https://www.figma.com/api/mcp/asset/46005cee-ab55-4153-a29f-c13f648a3e00"
+          src={patternRight.src}
           alt=""
           className="w-full h-full object-cover"
         />
@@ -26,11 +30,7 @@ export default function Detalles() {
             {/* Cuándo */}
             <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
-                <img
-                  src="https://www.figma.com/api/mcp/asset/a74f8391-3676-4a99-856c-251099ebebbe"
-                  alt=""
-                  className="w-full h-full"
-                />
+                <img src={iconCalendar.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
                 <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">
@@ -51,11 +51,7 @@ export default function Detalles() {
             {/* Dónde */}
             <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[49.26px] md:w-20 md:h-[65.68px] flex-shrink-0">
-                <img
-                  src="https://www.figma.com/api/mcp/asset/69354118-7634-4ded-84d5-e69a812739c2"
-                  alt=""
-                  className="w-full h-full"
-                />
+                <img src={iconLocation.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
                 <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">
@@ -76,11 +72,7 @@ export default function Detalles() {
             {/* Dress Code */}
             <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
-                <img
-                  src="https://www.figma.com/api/mcp/asset/093ed829-6365-49dc-9bf6-7d4a04b12977"
-                  alt=""
-                  className="w-full h-full"
-                />
+                <img src={iconDresscode.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
                 <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">

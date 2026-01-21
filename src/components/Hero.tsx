@@ -1,3 +1,5 @@
+import heroBg from "../assets/images/hero-bg.webp";
+
 export default function Hero() {
   return (
     <section
@@ -7,8 +9,9 @@ export default function Hero() {
       {/* Background Image Frame - positioned at top:73px */}
       <div className="absolute left-0 top-[73px] w-full h-[655px] overflow-hidden">
         <img
-          src="https://www.figma.com/api/mcp/asset/731bc9d8-743f-4688-8245-8c4af044456e"
-          alt=""
+          src={heroBg.src}
+          alt="Wedding hero background"
+          loading="eager"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)]" />
