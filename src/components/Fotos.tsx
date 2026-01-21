@@ -2,20 +2,8 @@ import { externalLinks } from "../config/links";
 
 export default function Fotos() {
   return (
-    <section
-      id="fotos"
-      className="relative py-24 bg-brand-linen overflow-hidden"
-    >
-      {/* Decorative Pattern */}
-      <div className="absolute left-0 bottom-0 w-[538px] h-[1200px] opacity-20">
-        <img
-          src="https://www.figma.com/api/mcp/asset/6546075f-1d5f-4e5f-ba64-e39ab768bf33"
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      <div className="container mx-auto px-12 relative z-10">
+    <section id="fotos" className="relative py-24">
+      <div className="container mx-auto px-4 md:px-12 relative z-10">
         <h2 className="font-['Dancing_Script'] font-normal text-[56px] text-brand-navy text-center mb-12 leading-normal">
           Fotos & Temaikenes
         </h2>
@@ -53,7 +41,7 @@ export default function Fotos() {
             </p>
             <div className="mb-4">
               <img
-                src="https://www.figma.com/api/mcp/asset/7f80dd6e-d38b-430b-9d15-02e39cac58c1"
+                src="/qr-codes/photos-qr.png"
                 alt="QR Code - Subir Fotos"
                 className="w-[200px] h-[200px] mx-auto"
               />
