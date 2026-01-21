@@ -1,0 +1,43 @@
+{
+  "name": "bodamm",
+  "version": "1.0.0",
+  "description": "Wedding landing page - V1 Static",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest",
+    "test:e2e": "playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OtamNitram/bodamm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OtamNitram/bodamm/issues"
+  },
+  "homepage": "https://github.com/OtamNitram/bodamm#readme",
+  "dependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^5.16.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.34.5",
+    "vitest": "^4.0.16"
+  }
+}
