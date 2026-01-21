@@ -1,28 +1,22 @@
 import { useState } from "react";
+import logoM from "../assets/images/logo-m.svg";
+import logoAmpersand from "../assets/images/logo-ampersand.svg";
 
 function Logo() {
   return (
     <div className="relative w-[86px] h-[23px]">
       <div className="absolute inset-[1.86%_54.85%_1.91%_0]">
-        <img
-          alt="M"
-          className="block max-w-none size-full"
-          src="https://www.figma.com/api/mcp/asset/7ec5e325-a4d6-4fef-ac48-4b7d56963909"
-        />
+        <img alt="M" className="block max-w-none size-full" src={logoM.src} />
       </div>
       <div className="absolute inset-[0_0_3.77%_54.85%]">
-        <img
-          alt="M"
-          className="block max-w-none size-full"
-          src="https://www.figma.com/api/mcp/asset/7ec5e325-a4d6-4fef-ac48-4b7d56963909"
-        />
+        <img alt="M" className="block max-w-none size-full" src={logoM.src} />
       </div>
       <div className="absolute flex inset-[21.74%_42.75%_-4.01%_36.28%] items-center justify-center">
         <div className="flex-none h-[17px] rotate-[352.587deg] w-[16px]">
           <img
             alt="&"
             className="block max-w-none size-full"
-            src="https://www.figma.com/api/mcp/asset/f5571613-aa23-4f81-8b4c-71df8624e329"
+            src={logoAmpersand.src}
           />
         </div>
       </div>
