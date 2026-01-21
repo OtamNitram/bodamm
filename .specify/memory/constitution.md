@@ -121,8 +121,8 @@ V1 scope is fixed. Features outside V1 are explicitly deferred—no scope creep.
 
 | Layer        | Technology                    | Constraint                                   |
 | ------------ | ----------------------------- | -------------------------------------------- |
-| Hosting      | Cloudflare Pages              | Deploy from GitHub main branch               |
-| RSVP API     | Cloudflare Pages Functions    | `/api/rsvp` POST endpoint                    |
+| Hosting      | Netlify                       | Deploy from GitHub main branch               |
+| RSVP API     | Netlify Functions             | `/api/rsvp` POST endpoint                    |
 | RSVP Storage | Google Sheets via Apps Script | Shared secret via `X-RSVP-SECRET` header     |
 | Maps         | Google Maps iframe embed      | No API key; simple embed                     |
 | Spotify      | External link                 | Single config value in `src/config/links.ts` |
@@ -168,7 +168,7 @@ A feature is complete when ALL of the following are true:
 
 ### Deployment & Documentation
 
-- [ ] Cloudflare Pages auto-deploys from GitHub
+- [ ] Netlify auto-deploys from GitHub
 - [ ] README documents: local dev, deployment, Apps Script setup, secret configuration
 - [ ] README documents where to change all configurable links
 

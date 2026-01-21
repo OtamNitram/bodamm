@@ -5,49 +5,49 @@
 
 ## Research Tasks
 
-### 1. Cloudflare Pages + Astro Integration
+### 1. Netlify + Astro Integration
 
-**Decision**: Use Cloudflare Pages with automatic Astro framework detection
+**Decision**: Use Netlify with automatic Astro framework detection
 
 **Rationale**:
 
-- Cloudflare Pages natively supports Astro with zero configuration
+- Netlify natively supports Astro with zero configuration
 - Auto-detects `astro build` command and `dist/` output directory
-- No `wrangler.toml` required for static-only deployment
-- Constitution mandates Cloudflare Pages (overrides spec's Netlify recommendation)
+- No `netlify.toml` required for static-only deployment
+- Constitution updated to use Netlify
 
 **Alternatives Considered**:
 
-- **Netlify**: Excellent Astro support, but constitution specifies Cloudflare
-- **Vercel**: Good option, but constitution specifies Cloudflare
+- **Cloudflare Pages**: Also excellent, but user prefers Netlify
+- **Vercel**: Good option, similar features
 - **GitHub Pages**: Limited (no serverless functions for future RSVP)
 
 ### 2. GitHub Integration for CI/CD
 
-**Decision**: Connect Cloudflare Pages directly to GitHub repository
+**Decision**: Connect Netlify directly to GitHub repository
 
 **Rationale**:
 
-- Native GitHub OAuth integration in Cloudflare dashboard
+- Native GitHub OAuth integration in Netlify dashboard
 - Automatic deployments on push to `main` branch
 - Preview deployments for pull requests (included in free tier)
-- No GitHub Actions workflow needed—Cloudflare handles everything
+- No GitHub Actions workflow needed—Netlify handles everything
 
 **Alternatives Considered**:
 
-- **GitHub Actions + Wrangler CLI**: More control but unnecessary complexity for this use case
+- **GitHub Actions + Netlify CLI**: More control but unnecessary complexity for this use case
 - **Manual deploys**: Violates FR-001 (automatic deployment requirement)
 
 ### 3. Build Configuration
 
-**Decision**: Use Cloudflare's auto-detected settings with minor overrides if needed
+**Decision**: Use Netlify's auto-detected settings with minor overrides if needed
 
 **Rationale**:
 
 - Framework preset: `Astro`
 - Build command: `npm run build` (maps to `astro check && astro build`)
-- Output directory: `dist`
-- Node.js version: 18 (Cloudflare default, compatible with Astro 5.x)
+- Publish directory: `dist`
+- Node.js version: 18 (Netlify default, compatible with Astro 5.x)
 
 **Configuration Notes**:
 
@@ -61,8 +61,8 @@
 
 **Rationale**:
 
-- Included in Cloudflare Pages free tier
-- Unique URL per PR (e.g., `abc123.bodamm.pages.dev`)
+- Included in Netlify free tier
+- Unique URL per PR (e.g., `deploy-preview-123--bodamm.netlify.app`)
 - Automatic cleanup when PR is closed/merged
 - Satisfies User Story 4 (P3 priority)
 
@@ -73,61 +73,61 @@
 
 ### 5. Notification Strategy
 
-**Decision**: Use Cloudflare's default notifications + GitHub commit status checks
+**Decision**: Use Netlify's default notifications + GitHub commit status checks
 
 **Rationale**:
 
-- Cloudflare Pages updates GitHub commit status (✓/✗)
-- Email notifications available in Cloudflare dashboard settings
-- Aligns with clarification answer: "Netlify default" → equivalent Cloudflare behavior
+- Netlify updates GitHub commit status (✓/✗)
+- Email notifications available in Netlify dashboard settings
+- Aligns with clarification answer: "Netlify default"
 - No Slack/webhook integration needed for solo developer
 
 ### 6. Custom Domain (Deferred)
 
-**Decision**: Use Cloudflare subdomain initially (`bodamm.pages.dev`)
+**Decision**: Use Netlify subdomain initially (`bodamm.netlify.app`)
 
 **Rationale**:
 
 - Clarification confirmed subdomain is acceptable
 - Custom domain can be added later without breaking existing links
-- Cloudflare handles SSL automatically for both subdomain and custom domains
+- Netlify handles SSL automatically for both subdomain and custom domains
 
 **Future Steps** (not in scope):
 
 1. Purchase domain (e.g., `bodamm.com`)
-2. Add custom domain in Cloudflare Pages settings
-3. Update DNS records (automatic if domain is on Cloudflare DNS)
+2. Add custom domain in Netlify site settings
+3. Update DNS records as instructed
 
 ### 7. Future-Proofing: Serverless Functions
 
-**Decision**: Architecture supports Cloudflare Pages Functions for future RSVP
+**Decision**: Architecture supports Netlify Functions for future RSVP
 
 **Rationale**:
 
-- Constitution specifies RSVP via Cloudflare Pages Functions
-- Functions are deployed from `functions/` directory (not created yet)
+- Constitution updated to specify RSVP via Netlify Functions
+- Functions are deployed from `netlify/functions/` directory (not created yet)
 - No action needed now—just awareness for future feature
 
 **Future Structure**:
 
 ```
-functions/
-└── api/
-    └── rsvp.ts    # POST /api/rsvp endpoint (future feature)
+netlify/
+└── functions/
+    └── rsvp.ts    # POST /.netlify/functions/rsvp endpoint (future feature)
 ```
 
 ## Resolved Unknowns
 
-| Unknown              | Resolution                               |
-| -------------------- | ---------------------------------------- |
-| Hosting platform     | Cloudflare Pages (per constitution)      |
-| CI/CD mechanism      | Native Cloudflare + GitHub integration   |
-| Build command        | `npm run build` (auto-detected)          |
-| Output directory     | `dist` (auto-detected)                   |
-| Node.js version      | 18 (Cloudflare default)                  |
-| Notification channel | GitHub commit status + email             |
-| Custom domain        | Deferred; subdomain acceptable           |
-| Docker               | Not needed for static site on Cloudflare |
+| Unknown              | Resolution                            |
+| -------------------- | ------------------------------------- |
+| Hosting platform     | Netlify (per updated constitution)    |
+| CI/CD mechanism      | Native Netlify + GitHub integration   |
+| Build command        | `npm run build` (auto-detected)       |
+| Publish directory    | `dist` (auto-detected)                |
+| Node.js version      | 18 (Netlify default)                  |
+| Notification channel | GitHub commit status + email          |
+| Custom domain        | Deferred; subdomain acceptable        |
+| Docker               | Not needed for static site on Netlify |
 
 ## No Remaining NEEDS CLARIFICATION
 

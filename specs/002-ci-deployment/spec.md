@@ -9,8 +9,8 @@
 
 ### Session 2026-01-21
 
-- Q: Build failure notification channel? → A: Cloudflare default (email + GitHub commit status)
-- Q: Custom domain requirement? → A: Cloudflare subdomain acceptable initially (e.g., bodamm.pages.dev)
+- Q: Build failure notification channel? → A: Netlify default (email + GitHub commit status)
+- Q: Custom domain requirement? → A: Netlify subdomain acceptable initially (e.g., bodamm.netlify.app)
 
 ## User Scenarios & Testing _(mandatory)_
 
@@ -125,7 +125,7 @@ As a developer, I want to preview changes in a temporary environment before merg
 - The repository is hosted on GitHub (based on existing package.json repository URL)
 - The developer has access to create accounts on free hosting services
 - The Astro build process (`npm run build`) produces valid static output
-- Cloudflare subdomain (e.g., bodamm.pages.dev) is acceptable for initial deployment; custom domain can be added later
+- Netlify subdomain (e.g., bodamm.netlify.app) is acceptable for initial deployment; custom domain can be added later
 - Traffic will remain within free tier limits (< 100GB bandwidth/month)
 
 ## Manual Setup Steps Required
@@ -139,16 +139,14 @@ The following steps require manual action by the developer and cannot be automat
 
 ## Technology Recommendation
 
-**Platform: Cloudflare Pages** (per project constitution)
+**Platform: Netlify** (per project constitution)
 
 Rationale:
 
 - Native Astro framework support with zero-configuration detection
 - Generous free tier (500 builds/month, unlimited bandwidth)
 - Built-in CI/CD with GitHub integration
-- Cloudflare Pages Functions support for future RSVP backend
+- Netlify Functions support for future RSVP backend
 - Preview deployments for pull requests included in free tier
 - No Docker required for static site deployment
-- Constitution mandates Cloudflare Pages for this project
-
-**Note**: Original spec recommended Netlify, but the project constitution (Section: Technology Stack & Constraints) specifies Cloudflare Pages. This plan aligns with the constitution.
+- Constitution updated to use Netlify for this project

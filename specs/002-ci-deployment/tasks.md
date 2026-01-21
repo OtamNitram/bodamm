@@ -23,26 +23,26 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 **Purpose**: Ensure local environment and repository are ready for deployment
 
-- [ ] T001 Verify local build works by running `npm run build` in repository root
-- [ ] T002 Verify `package-lock.json` is committed to repository
-- [ ] T003 [P] Verify `main` branch exists and is up to date with remote
+- [x] T001 Verify local build works by running `npm run build` in repository root
+- [x] T002 Verify `package-lock.json` is committed to repository
+- [x] T003 [P] Verify `main` branch exists and is up to date with remote
 
-**Checkpoint**: Local build succeeds, repository is ready for Cloudflare connection
+**Checkpoint**: Local build succeeds, repository is ready for Netlify connection
 
 ---
 
-## Phase 2: Foundational (Cloudflare Account Setup)
+## Phase 2: Foundational (Netlify Account Setup)
 
-**Purpose**: Create and configure Cloudflare account - BLOCKS all user stories
+**Purpose**: Create and configure Netlify account - BLOCKS all user stories
 
-**⚠️ CRITICAL**: No deployment can occur until Cloudflare account is connected to GitHub
+**⚠️ CRITICAL**: No deployment can occur until Netlify account is connected to GitHub
 
-- [ ] T004 [MANUAL] Create Cloudflare account at https://dash.cloudflare.com (if not exists)
-- [ ] T005 [MANUAL] Navigate to Workers & Pages → Create application → Pages → Connect to Git
-- [ ] T006 [MANUAL] Authorize Cloudflare to access GitHub account
-- [ ] T007 [MANUAL] Select repository `OtamNitram/bodamm` from repository list
+- [x] T004 [MANUAL] Create Netlify account at https://app.netlify.com (if not exists)
+- [x] T005 [MANUAL] Click "Add new site" → "Import an existing project" → "Deploy with GitHub"
+- [x] T006 [MANUAL] Authorize Netlify to access GitHub account
+- [x] T007 [MANUAL] Select repository `OtamNitram/bodamm` from repository list
 
-**Checkpoint**: Cloudflare is connected to GitHub repository, ready for project configuration
+**Checkpoint**: Netlify is connected to GitHub repository, ready for project configuration
 
 ---
 
@@ -54,14 +54,13 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 ### Implementation for User Story 1
 
-- [ ] T008 [MANUAL] [US1] Configure build settings in Cloudflare Pages setup wizard:
-  - Project name: `bodamm`
-  - Production branch: `main`
-  - Framework preset: Astro (auto-detected)
+- [ ] T008 [MANUAL] [US1] Configure build settings in Netlify setup wizard:
+  - Site name: `bodamm` (or auto-generated)
+  - Branch to deploy: `main`
   - Build command: `npm run build`
-  - Build output directory: `dist`
-- [ ] T009 [MANUAL] [US1] Click "Save and Deploy" to trigger initial deployment
-- [ ] T010 [MANUAL] [US1] Monitor build progress in Cloudflare dashboard until completion
+  - Publish directory: `dist`
+- [ ] T009 [MANUAL] [US1] Click "Deploy site" to trigger initial deployment
+- [ ] T010 [MANUAL] [US1] Monitor build progress in Netlify dashboard until completion
 - [ ] T011 [US1] Verify GitHub commit shows deployment status check (✓ or ✗)
 - [ ] T012 [US1] Test CI/CD by pushing a minor change to main branch in README.md
 - [ ] T013 [US1] Verify the change appears on live site within 5 minutes
@@ -78,8 +77,8 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Record the deployed site URL (https://bodamm.pages.dev) in project documentation
-- [ ] T015 [US2] Verify site loads at https://bodamm.pages.dev in desktop browser
+- [ ] T014 [US2] Record the deployed site URL (https://bodamm.netlify.app) in project documentation
+- [ ] T015 [US2] Verify site loads at https://bodamm.netlify.app in desktop browser
 - [ ] T016 [P] [US2] Verify site loads correctly on mobile device (iOS or Android)
 - [ ] T017 [P] [US2] Verify HTTPS certificate is active (lock icon in browser)
 - [ ] T018 [US2] Verify page load time is under 3 seconds using browser DevTools
@@ -97,7 +96,7 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 ### Implementation for User Story 3
 
-- [ ] T020 [MANUAL] [US3] Enable email notifications in Cloudflare Pages → Project settings → Notifications
+- [ ] T020 [MANUAL] [US3] Enable email notifications in Netlify → Site settings → Build & deploy → Deploy notifications
 - [ ] T021 [US3] Verify GitHub commit status checks are working (already enabled by default)
 - [ ] T022 [US3] Test failure notification by temporarily breaking build (e.g., TypeScript error)
 - [ ] T023 [US3] Verify email notification received for failed build
@@ -118,7 +117,7 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 - [ ] T026 [US4] Create a test branch from main with a minor change
 - [ ] T027 [US4] Open a pull request from test branch to main
-- [ ] T028 [US4] Verify Cloudflare creates preview deployment (check PR comments or status)
+- [ ] T028 [US4] Verify Netlify creates preview deployment (check PR comments or status)
 - [ ] T029 [US4] Access the preview URL and verify it shows the PR changes
 - [ ] T030 [US4] Close or merge the PR
 - [ ] T031 [US4] Verify preview deployment is cleaned up (URL no longer accessible after some time)
@@ -132,9 +131,9 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 **Purpose**: Final documentation and verification
 
 - [ ] T032 [P] Update README.md with deployment instructions at repository root
-- [ ] T033 [P] Document Cloudflare dashboard access in specs/002-ci-deployment/quickstart.md
+- [ ] T033 [P] Document Netlify dashboard access in specs/002-ci-deployment/quickstart.md
 - [ ] T034 Run full verification checklist from quickstart.md:
-  - [ ] Site accessible at https://bodamm.pages.dev
+  - [ ] Site accessible at https://bodamm.netlify.app
   - [ ] HTTPS certificate active
   - [ ] Push to main triggers new deployment
   - [ ] PR creates preview deployment
@@ -239,9 +238,9 @@ Task: T026-T031
 
 ## Notes
 
-- **[MANUAL]** tasks require action in Cloudflare dashboard (cannot be scripted)
+- **[MANUAL]** tasks require action in Netlify dashboard (cannot be scripted)
 - Most tasks are verification/configuration, not code changes
 - No source code modifications required for this feature
-- Cloudflare auto-detects Astro framework settings
+- Netlify auto-detects Astro framework settings
 - Free tier is sufficient for all features
 - Custom domain setup is out of scope (can be added later)
