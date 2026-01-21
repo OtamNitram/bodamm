@@ -46,7 +46,7 @@ playwright/.cache/
 # Package manager
 .yarn/
 .pnpm-store/
-package-lock.json
+# Note: package-lock.json is NOT ignored - required for Cloudflare Pages builds
 yarn.lock
 pnpm-lock.yaml
 
