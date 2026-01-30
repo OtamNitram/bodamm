@@ -17,7 +17,7 @@ export default function Button({
     "inline-block px-6 py-3 rounded-md font-semibold transition-colors duration-200";
 
   const variantStyles = {
-    default: "bg-brand-eucalyptus text-brand-linen hover:bg-brand-darkGreen",
+    default: "bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus",
     secondary: "bg-brand-terracotta text-brand-linen hover:bg-brand-burgundy",
   };
 

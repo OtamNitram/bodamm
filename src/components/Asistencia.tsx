@@ -20,10 +20,16 @@ export default function Asistencia() {
             </p>
 
             <div className="flex flex-col gap-4 items-center pt-4">
-              <Button href={externalLinks.contact.whatsappUrl}>
+              <Button
+                href={externalLinks.contact.whatsappUrl}
+                className="w-[257px] min-h-[40px]"
+              >
                 Mandale un WhatsApp a Martín
               </Button>
-              <Button href={externalLinks.contact.whatsappUrl}>
+              <Button
+                href={externalLinks.contact.whatsappUrl}
+                className="w-[257px] min-h-[40px]"
+              >
                 Mandale un WhatsApp a Mariana
               </Button>
             </div>

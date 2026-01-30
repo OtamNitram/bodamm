@@ -134,10 +134,10 @@
 
 ### Implementation for User Story 6
 
-- [ ] T029 [US6] Export Spotify icon as SVG from Figma file
-- [ ] T030 [US6] Replace low-quality Spotify logo in src/assets/icons/spotify.svg
-- [ ] T031 [US6] Update import in component if filename changed
-- [ ] T032 [US6] Verify Spotify logo renders crisply at 2x zoom
+- [x] T029 [US6] Export Spotify icon as SVG from Figma file
+- [x] T030 [US6] Replace low-quality Spotify logo in src/assets/icons/spotify.svg
+- [x] T031 [US6] Update import in component if filename changed
+- [x] T032 [US6] Verify Spotify logo renders crisply at 2x zoom
 
 **Checkpoint**: User Story 6 complete - Spotify logo high quality
 
@@ -151,9 +151,9 @@
 
 ### Implementation for User Story 7
 
-- [ ] T033 [US7] Ensure both WhatsApp buttons use identical width/height (257px x 40px) in src/components/Asistencia.tsx
-- [ ] T034 [US7] Verify button colors match Figma (bg-brand-darkGreen, text-brand-linen)
-- [ ] T035 [US7] Compare buttons side by side to confirm visual consistency
+- [x] T033 [US7] Ensure both WhatsApp buttons use identical width/height (257px x 40px) in src/components/Asistencia.tsx
+- [x] T034 [US7] Verify button colors match Figma (bg-brand-darkGreen, text-brand-linen)
+- [x] T035 [US7] Compare buttons side by side to confirm visual consistency
 
 **Checkpoint**: User Story 7 complete - WhatsApp buttons consistent
 
@@ -169,9 +169,9 @@
 
 ### Implementation for User Story 8
 
-- [ ] T036 [US8] Audit all section margins in src/pages/index.astro for design system compliance
-- [ ] T037 [US8] Fix any remaining excessive gaps between sections
-- [ ] T038 [US8] Verify section transitions are visually consistent with Figma
+- [x] T036 [US8] Audit all section margins in src/pages/index.astro for design system compliance
+- [x] T037 [US8] Fix any remaining excessive gaps between sections
+- [x] T038 [US8] Verify section transitions are visually consistent with Figma
 
 **Checkpoint**: User Story 8 complete - section spacing normalized
 
@@ -214,11 +214,11 @@
 
 **Purpose**: Final validation and visual regression test updates
 
-- [ ] T046 [P] Run visual regression tests with `npm run test:visual`
-- [ ] T047 [P] Update visual regression snapshots after confirming Figma match
-- [ ] T048 Perform full-page scroll test at 375px, 800px, 1200px viewports
-- [ ] T049 Verify Lighthouse performance score ≥ 90 (no regression)
-- [ ] T050 Run quickstart.md testing checklist validation
+- [x] T046 [P] Run visual regression tests with `npm run test:e2e` (note: test:visual renamed)
+- [x] T047 [P] Update visual regression snapshots after confirming Figma match
+- [x] T048 Perform full-page scroll test at 375px, 800px, 1200px viewports
+- [x] T049 Verify Lighthouse performance score ≥ 90 (no regression)
+- [x] T050 Run quickstart.md testing checklist validation
 
 ---
 

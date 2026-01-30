@@ -1,4 +1,5 @@
 import { externalLinks } from "../config/links";
+import spotifyIcon from "../assets/icons/spotify.svg";
 
 export default function Fotos() {
   return (
@@ -22,10 +23,18 @@ export default function Fotos() {
               href={externalLinks.spotify.playlistUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 bg-brand-darkGreen text-brand-linen px-4 py-2 rounded-xl text-[14px] font-semibold hover:bg-brand-eucalyptus transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-darkGreen text-brand-linen px-4 py-2 rounded-xl text-[14px] font-semibold hover:bg-brand-eucalyptus transition-colors"
             >
               <span>Ir a Spotify</span>
-              <span className="text-[#1bd75f]">♫</span>
+              <img
+                src={spotifyIcon.src}
+                alt="Spotify"
+                className="w-4 h-4 text-[#1bd75f]"
+                style={{
+                  filter:
+                    "invert(67%) sepia(89%) saturate(401%) hue-rotate(88deg) brightness(97%) contrast(91%)",
+                }}
+              />
             </a>
           </div>
 
