@@ -7,12 +7,12 @@ export default function Hero() {
       className="relative h-[688px] md:h-[728px] bg-brand-linen overflow-hidden w-full"
     >
       {/* Background Image Frame - positioned at top:73px with rounded corners per Figma */}
-      <div className="absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 top-[73px] w-[862px] md:w-full h-[615px] md:h-[655px] overflow-hidden rounded-[20px] md:rounded-none">
+      <div className="absolute left-[calc(50%-490px)] md:left-0 top-[73px] w-[862px] md:w-full h-[615px] md:h-[655px] overflow-hidden rounded-[20px] md:rounded-none">
         <img
           src={heroBg.src}
           alt="Wedding hero background"
           loading="eager"
-          className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)]" />
       </div>
