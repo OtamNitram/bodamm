@@ -105,12 +105,10 @@ export const externalLinks = {
 ### Required Manual Steps
 
 1. **Images** (see `src/assets/images/README.md`):
-
    - Export frames from Figma in WebP format at 1x, 2x, 3x
    - Nodes: 10:197 (web), 11:1176 (tablet), 11:1017 (mobile)
 
 2. **Icons** (see `src/assets/icons/README.md`):
-
    - Export all icons from Figma in SVG format
    - Save with descriptive names (e.g., `whatsapp.svg`)
 
@@ -141,12 +139,30 @@ npm run build
 npm run preview
 ```
 
-### Deploy to Cloudflare Pages
+### Production Site
 
-1. Connect your GitHub repository to Cloudflare Pages
-2. Set build command: `npm run build`
-3. Set output directory: `dist`
-4. Deploy!
+**Live URL**: https://bodamm.netlify.app
+
+The site is deployed on Netlify with automatic CI/CD:
+
+- Push to `main` branch → automatic deployment
+- Pull requests → preview deployments with unique URLs
+
+### Manual Deployment (if needed)
+
+```bash
+# Install Netlify CLI
+npm install -g netlify-cli
+
+# Login to Netlify
+netlify login
+
+# Link to existing site
+netlify link --id 239b3b15-3790-48a4-b5f4-333e2b817765
+
+# Deploy to production
+netlify deploy --prod
+```
 
 ## 📋 Implementation Status
 
