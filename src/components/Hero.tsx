@@ -12,7 +12,7 @@ export default function Hero() {
           src={heroBg.src}
           alt="Wedding hero background"
           loading="eager"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_center] md:object-center"
         />
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)]" />
       </div>
