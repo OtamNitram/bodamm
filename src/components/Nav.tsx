@@ -36,15 +36,15 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-brand-burgundy text-brand-linen shadow-lg z-50">
-      <div className="max-w-[1200px] mx-auto px-4 md:px-12 py-4 md:py-6">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-12 py-6">
         <div className="flex items-center justify-between">
           {/* Logo - left edge */}
           <a href="#hero" className="flex-shrink-0">
             <Logo />
           </a>
 
-          {/* Date - fills space, left aligned */}
-          <p className="flex-grow text-left text-[12px] ml-4">
+          {/* Date - with gap-[30px] from logo per Figma */}
+          <p className="flex-grow text-left text-[12px] ml-[30px]">
             25 de Abril de 2026
           </p>
 
