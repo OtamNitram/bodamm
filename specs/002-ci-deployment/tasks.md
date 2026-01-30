@@ -54,16 +54,16 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 ### Implementation for User Story 1
 
-- [ ] T008 [MANUAL] [US1] Configure build settings in Netlify setup wizard:
+- [x] T008 [MANUAL] [US1] Configure build settings in Netlify setup wizard:
   - Site name: `bodamm` (or auto-generated)
   - Branch to deploy: `main`
   - Build command: `npm run build`
   - Publish directory: `dist`
-- [ ] T009 [MANUAL] [US1] Click "Deploy site" to trigger initial deployment
-- [ ] T010 [MANUAL] [US1] Monitor build progress in Netlify dashboard until completion
-- [ ] T011 [US1] Verify GitHub commit shows deployment status check (✓ or ✗)
-- [ ] T012 [US1] Test CI/CD by pushing a minor change to main branch in README.md
-- [ ] T013 [US1] Verify the change appears on live site within 5 minutes
+- [x] T009 [MANUAL] [US1] Click "Deploy site" to trigger initial deployment
+- [x] T010 [MANUAL] [US1] Monitor build progress in Netlify dashboard until completion
+- [x] T011 [US1] Verify GitHub commit shows deployment status check (✓ or ✗)
+- [x] T012 [US1] Test CI/CD by pushing a minor change to main branch in README.md
+- [x] T013 [US1] Verify the change appears on live site within 5 minutes
 
 **Checkpoint**: Automatic deployment working - pushing to main triggers build and deploy
 
@@ -77,12 +77,12 @@ This feature is primarily infrastructure setup with manual steps in Cloudflare d
 
 ### Implementation for User Story 2
 
-- [ ] T014 [US2] Record the deployed site URL (https://bodamm.netlify.app) in project documentation
-- [ ] T015 [US2] Verify site loads at https://bodamm.netlify.app in desktop browser
-- [ ] T016 [P] [US2] Verify site loads correctly on mobile device (iOS or Android)
-- [ ] T017 [P] [US2] Verify HTTPS certificate is active (lock icon in browser)
-- [ ] T018 [US2] Verify page load time is under 3 seconds using browser DevTools
-- [ ] T019 [US2] Update README.md with production URL at repository root
+- [x] T014 [US2] Record the deployed site URL (https://bodamm.netlify.app) in project documentation
+- [x] T015 [US2] Verify site loads at https://bodamm.netlify.app in desktop browser
+- [x] T016 [P] [US2] Verify site loads correctly on mobile device (iOS or Android)
+- [x] T017 [P] [US2] Verify HTTPS certificate is active (lock icon in browser)
+- [x] T018 [US2] Verify page load time is under 3 seconds using browser DevTools
+- [x] T019 [US2] Update README.md with production URL at repository root
 
 **Checkpoint**: Site is publicly accessible, responsive, and fast
 
