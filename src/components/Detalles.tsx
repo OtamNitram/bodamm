@@ -20,7 +20,7 @@ export default function Detalles() {
       </div>
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <h2 className="font-['Dancing_Script'] text-[36px] md:text-[43px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12">
+        <h2 className="font-['Dancing_Script'] font-bold text-[36px] md:text-[43px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
           Los detalles del Evento
         </h2>
 

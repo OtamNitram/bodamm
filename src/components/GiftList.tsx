@@ -17,11 +17,11 @@ export default function GiftList() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-12 flex flex-col items-center gap-8 md:gap-12">
-        <h2 className="font-['Dancing_Script'] font-normal text-[36px] md:text-[56px] text-brand-linen leading-normal text-center">
+        <h2 className="font-['Dancing_Script'] font-bold text-[36px] md:text-[56px] text-brand-linen leading-normal text-center tracking-[0.02em]">
           Gift List
         </h2>
 
-        <div className="text-center text-brand-linen text-[16px] md:text-[18px] leading-normal max-w-3xl px-2">
+        <div className="text-center text-brand-linen text-[16px] md:text-[18px] leading-normal max-w-[800px] mx-auto px-2">
           <p className="mb-0">
             Lo que más nos importa es que vengas a{" "}
             <span className="font-bold">darlo todo en la pista</span> y a{" "}

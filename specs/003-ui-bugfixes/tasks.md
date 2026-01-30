@@ -19,9 +19,9 @@
 
 **Purpose**: Prepare environment for styling changes
 
-- [ ] T001 Ensure local dev environment is running with `npm run dev`
-- [ ] T002 [P] Open Figma file for reference: https://www.figma.com/design/qwrm6VDQhaEODfbkZfQ6Kk/Casamiento
-- [ ] T003 [P] Open browser DevTools for responsive testing at 375px, 800px, 1200px
+- [x] T001 Ensure local dev environment is running with `npm run dev`
+- [x] T002 [P] Open Figma file for reference: https://www.figma.com/design/qwrm6VDQhaEODfbkZfQ6Kk/Casamiento
+- [x] T003 [P] Open browser DevTools for responsive testing at 375px, 800px, 1200px
 
 ---
 
@@ -31,9 +31,9 @@
 
 **⚠️ CRITICAL**: Complete before user story phases to ensure consistent H1/H2 styling
 
-- [ ] T004 Add H1 bold font-weight (700) and 2% letter-spacing in src/styles/global.css
-- [ ] T005 Add H2 bold font-weight (700) and 2% letter-spacing in src/styles/global.css
-- [ ] T006 Verify all H1/H2 headings render with bold + letter-spacing across site
+- [x] T004 Add H1 bold font-weight (700) and 2% letter-spacing in src/styles/global.css
+- [x] T005 Add H2 bold font-weight (700) and 2% letter-spacing in src/styles/global.css
+- [x] T006 Verify all H1/H2 headings render with bold + letter-spacing across site
 
 **Checkpoint**: Typography foundation ready - user story implementation can begin
 
@@ -47,10 +47,10 @@
 
 ### Implementation for User Story 1
 
-- [ ] T007 [US1] Center hero image horizontally on mobile in src/components/Hero.tsx
-- [ ] T008 [US1] Position "Save the Date" text at top using absolute positioning in src/components/Hero.tsx
-- [ ] T009 [US1] Review and correct text content in Save the Date section in src/components/Hero.tsx
-- [ ] T010 [US1] Verify hero section at 375px viewport matches Figma node 11:1021
+- [x] T007 [US1] Center hero image horizontally on mobile in src/components/Hero.tsx
+- [x] T008 [US1] Position "Save the Date" text at top using absolute positioning in src/components/Hero.tsx
+- [x] T009 [US1] Review and correct text content in Save the Date section in src/components/Hero.tsx
+- [x] T010 [US1] Verify hero section at 375px viewport matches Figma node 11:1021
 
 **Checkpoint**: User Story 1 complete - mobile hero displays correctly
 
@@ -64,12 +64,12 @@
 
 ### Implementation for User Story 2
 
-- [ ] T011 [US2] Add spacing tokens to tailwind.config.mjs if not present (safe, xl, l variants)
-- [ ] T012 [P] [US2] Update safe-margin padding in src/pages/index.astro (px-4 mobile, px-12 desktop)
-- [ ] T013 [P] [US2] Update section spacing in src/components/Hero.tsx to use design system values
-- [ ] T014 [P] [US2] Update section spacing in src/components/Detalles.tsx to use design system values
-- [ ] T015 [US2] Reduce excessive spacing between QR photos and Asistencia sections in src/pages/index.astro
-- [ ] T016 [US2] Verify spacing at 375px, 800px, and 1200px matches Figma margins table
+- [x] T011 [US2] Add spacing tokens to tailwind.config.mjs if not present (safe, xl, l variants)
+- [x] T012 [P] [US2] Update safe-margin padding in src/pages/index.astro (px-4 mobile, px-12 desktop)
+- [x] T013 [P] [US2] Update section spacing in src/components/Hero.tsx to use design system values
+- [x] T014 [P] [US2] Update section spacing in src/components/Detalles.tsx to use design system values
+- [x] T015 [US2] Reduce excessive spacing between QR photos and Asistencia sections in src/pages/index.astro
+- [x] T016 [US2] Verify spacing at 375px, 800px, and 1200px matches Figma margins table
 
 **Checkpoint**: User Story 2 complete - spacing consistent across all breakpoints
 
@@ -83,10 +83,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T017 [US3] Position logo at left edge respecting safe-margin in src/components/Nav.tsx
-- [ ] T018 [US3] Position hamburger menu at right edge respecting safe-margin in src/components/Nav.tsx
-- [ ] T019 [US3] Make date text flex-grow with left alignment in src/components/Nav.tsx
-- [ ] T020 [US3] Verify navbar layout at mobile and desktop viewports
+- [x] T017 [US3] Position logo at left edge respecting safe-margin in src/components/Nav.tsx
+- [x] T018 [US3] Position hamburger menu at right edge respecting safe-margin in src/components/Nav.tsx
+- [x] T019 [US3] Make date text flex-grow with left alignment in src/components/Nav.tsx
+- [x] T020 [US3] Verify navbar layout at mobile and desktop viewports
 
 **Checkpoint**: User Story 3 complete - navbar layout matches Figma
 
@@ -100,11 +100,11 @@
 
 ### Implementation for User Story 4
 
-- [ ] T021 [US4] Set mobile menu background to bg-brand-burgundy in src/components/Nav.tsx
-- [ ] T022 [US4] Add min-h-[48px] to menu items for touch accessibility in src/components/Nav.tsx
-- [ ] T023 [US4] Change close (X) icon color to text-brand-linen in src/components/Nav.tsx
-- [ ] T024 [US4] Ensure navbar maintains bg-brand-burgundy on scroll in src/components/Nav.tsx
-- [ ] T025 [US4] Verify mobile menu styling matches Figma Nav component
+- [x] T021 [US4] Set mobile menu background to bg-brand-burgundy in src/components/Nav.tsx
+- [x] T022 [US4] Add min-h-[48px] to menu items for touch accessibility in src/components/Nav.tsx
+- [x] T023 [US4] Change close (X) icon color to text-brand-linen in src/components/Nav.tsx
+- [x] T024 [US4] Ensure navbar maintains bg-brand-burgundy on scroll in src/components/Nav.tsx
+- [x] T025 [US4] Verify mobile menu styling matches Figma Nav component
 
 **Checkpoint**: User Story 4 complete - mobile menu fully styled
 
@@ -118,9 +118,9 @@
 
 ### Implementation for User Story 5
 
-- [ ] T026 [US5] Add max-w-[800px] mx-auto to gift list text container in src/components/GiftList.tsx
-- [ ] T027 [US5] Remove any hardcoded <br> tags from gift list text in src/components/GiftList.tsx
-- [ ] T028 [US5] Verify text flows naturally at all breakpoints
+- [x] T026 [US5] Add max-w-[800px] mx-auto to gift list text container in src/components/GiftList.tsx
+- [x] T027 [US5] Remove any hardcoded <br> tags from gift list text in src/components/GiftList.tsx
+- [x] T028 [US5] Verify text flows naturally at all breakpoints
 
 **Checkpoint**: User Story 5 complete - gift list text properly constrained
 
@@ -185,9 +185,9 @@
 
 ### Implementation for User Story 9
 
-- [ ] T039 [US9] Verify all H1 elements inherit global bold + letter-spacing styles
-- [ ] T040 [US9] Verify all H2 elements inherit global bold + letter-spacing styles
-- [ ] T041 [US9] Fix any component-level overrides that conflict with global typography in src/components/
+- [x] T039 [US9] Verify all H1 elements inherit global bold + letter-spacing styles
+- [x] T040 [US9] Verify all H2 elements inherit global bold + letter-spacing styles
+- [x] T041 [US9] Fix any component-level overrides that conflict with global typography in src/components/
 
 **Checkpoint**: User Story 9 complete - typography consistent site-wide
 
@@ -201,10 +201,10 @@
 
 ### Implementation for User Story 10
 
-- [ ] T042 [US10] Update H2 to font-bold in src/components/Gracias.tsx
-- [ ] T043 [US10] Add tracking-[0.02em] to H2 for 2% letter-spacing in src/components/Gracias.tsx
-- [ ] T044 [US10] Add missing second line "(sí, en la foto teníamos 20 años)" in src/components/Gracias.tsx
-- [ ] T045 [US10] Verify footer matches Figma node 11:762
+- [x] T042 [US10] Update H2 to font-bold in src/components/Gracias.tsx
+- [x] T043 [US10] Add tracking-[0.02em] to H2 for 2% letter-spacing in src/components/Gracias.tsx
+- [x] T044 [US10] Add missing second line "(sí, en la foto teníamos 20 años)" in src/components/Gracias.tsx
+- [x] T045 [US10] Verify footer matches Figma node 11:762
 
 **Checkpoint**: User Story 10 complete - footer matches Figma
 
@@ -235,28 +235,31 @@
 
 ### User Story Dependencies
 
-| Story | Priority | Can Start After | Dependencies |
-|-------|----------|-----------------|--------------|
-| US1 | P1 | Phase 2 | None |
-| US2 | P1 | Phase 2 | None |
-| US3 | P1 | Phase 2 | None |
-| US4 | P2 | Phase 2 | US3 (same file Nav.tsx) |
-| US5 | P2 | Phase 2 | None |
-| US6 | P2 | Phase 2 | None |
-| US7 | P2 | Phase 2 | None |
-| US8 | P2 | US2 | Spacing tokens from US2 |
-| US9 | P2 | Phase 2 | Foundational typography |
-| US10 | P3 | Phase 2 | None |
+| Story | Priority | Can Start After | Dependencies            |
+| ----- | -------- | --------------- | ----------------------- |
+| US1   | P1       | Phase 2         | None                    |
+| US2   | P1       | Phase 2         | None                    |
+| US3   | P1       | Phase 2         | None                    |
+| US4   | P2       | Phase 2         | US3 (same file Nav.tsx) |
+| US5   | P2       | Phase 2         | None                    |
+| US6   | P2       | Phase 2         | None                    |
+| US7   | P2       | Phase 2         | None                    |
+| US8   | P2       | US2             | Spacing tokens from US2 |
+| US9   | P2       | Phase 2         | Foundational typography |
+| US10  | P3       | Phase 2         | None                    |
 
 ### Parallel Opportunities
 
 **Within Phase 2 (Foundational)**:
+
 - T004 and T005 modify same file - execute sequentially
 
 **P1 Stories (can run in parallel)**:
+
 - US1 (Hero.tsx) ‖ US2 (index.astro, tailwind.config.mjs) ‖ US3 (Nav.tsx)
 
 **P2 Stories (can run in parallel, with exceptions)**:
+
 - US5 (GiftList.tsx) ‖ US6 (assets/icons) ‖ US7 (Asistencia.tsx)
 - US4 must wait for US3 (both modify Nav.tsx)
 - US8 should wait for US2 (depends on spacing tokens)
@@ -297,6 +300,7 @@ Developer C: US3 - Nav.tsx (T017-T020)
 ### Single Developer Strategy
 
 Execute phases sequentially in priority order:
+
 1. Setup → Foundational → US1 → US2 → US3 (P1 complete)
 2. US4 → US5 → US6 → US7 → US8 → US9 (P2 complete)
 3. US10 (P3 complete) → Polish
@@ -316,21 +320,21 @@ Execute phases sequentially in priority order:
 
 ## Summary
 
-| Metric | Value |
-|--------|-------|
-| Total Tasks | 50 |
-| Setup Tasks | 3 |
-| Foundational Tasks | 3 |
-| US1 Tasks | 4 |
-| US2 Tasks | 6 |
-| US3 Tasks | 4 |
-| US4 Tasks | 5 |
-| US5 Tasks | 3 |
-| US6 Tasks | 4 |
-| US7 Tasks | 3 |
-| US8 Tasks | 3 |
-| US9 Tasks | 3 |
-| US10 Tasks | 4 |
-| Polish Tasks | 5 |
+| Metric                 | Value               |
+| ---------------------- | ------------------- |
+| Total Tasks            | 50                  |
+| Setup Tasks            | 3                   |
+| Foundational Tasks     | 3                   |
+| US1 Tasks              | 4                   |
+| US2 Tasks              | 6                   |
+| US3 Tasks              | 4                   |
+| US4 Tasks              | 5                   |
+| US5 Tasks              | 3                   |
+| US6 Tasks              | 4                   |
+| US7 Tasks              | 3                   |
+| US8 Tasks              | 3                   |
+| US9 Tasks              | 3                   |
+| US10 Tasks             | 4                   |
+| Polish Tasks           | 5                   |
 | Parallel Opportunities | 15 tasks marked [P] |
-| Estimated Time | 2-3 hours |
+| Estimated Time         | 2-3 hours           |

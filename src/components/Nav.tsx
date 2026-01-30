@@ -36,15 +36,17 @@ export default function Nav() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 bg-brand-burgundy text-brand-linen shadow-lg z-50">
-      <div className="max-w-[1200px] mx-auto px-12 py-6">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-12 py-4 md:py-6">
         <div className="flex items-center justify-between">
-          {/* Logo and Date */}
-          <div className="flex items-center gap-8">
-            <a href="#hero">
-              <Logo />
-            </a>
-            <p className="text-[12px]">25 de Abril de 2026</p>
-          </div>
+          {/* Logo - left edge */}
+          <a href="#hero" className="flex-shrink-0">
+            <Logo />
+          </a>
+
+          {/* Date - fills space, left aligned */}
+          <p className="flex-grow text-left text-[12px] ml-4">
+            25 de Abril de 2026
+          </p>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8 text-[18px] underline">
@@ -59,14 +61,14 @@ export default function Nav() {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - right edge */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-brand-darkGreen transition-colors"
+            className="md:hidden p-2 rounded-md hover:bg-brand-darkGreen transition-colors flex-shrink-0"
             aria-label="Toggle menu"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-brand-linen"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -85,12 +87,12 @@ export default function Nav() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden pb-4 pt-4">
+          <div className="md:hidden pb-4 pt-4 bg-brand-burgundy">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="block py-2 hover:text-brand-linen/80 transition-colors underline"
+                className="block min-h-[48px] flex items-center py-3 text-brand-linen hover:text-brand-linen/80 transition-colors underline"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

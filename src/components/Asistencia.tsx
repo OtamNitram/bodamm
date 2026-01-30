@@ -5,7 +5,7 @@ export default function Asistencia() {
   return (
     <section id="asistencia" className="relative py-24">
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <h2 className="font-['Dancing_Script'] font-normal text-[36px] md:text-[56px] text-brand-navy text-center mb-8 md:mb-12 leading-normal">
+        <h2 className="font-['Dancing_Script'] font-bold text-[36px] md:text-[56px] text-brand-navy text-center mb-8 md:mb-12 leading-normal tracking-[0.02em]">
           Confirmación de Asistencia
         </h2>
 

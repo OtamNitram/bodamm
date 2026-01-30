@@ -10,4 +10,16 @@
   body {
     @apply font-lato;
   }
+
+  h1,
+  .h1 {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  h2,
+  .h2 {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
 }
