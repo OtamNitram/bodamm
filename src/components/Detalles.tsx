@@ -8,7 +8,7 @@ export default function Detalles() {
   return (
     <section
       id="detalles"
-      className="relative py-14 md:py-20 lg:py-24 bg-brand-linen overflow-hidden"
+      className="relative py-14 md:py-24 bg-brand-linen overflow-hidden"
     >
       {/* Decorative Pattern - Only visible on larger screens */}
       <div className="hidden lg:block absolute right-0 top-[-529px] w-[736px] h-[1026px] opacity-20">
@@ -20,7 +20,7 @@ export default function Detalles() {
       </div>
 
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <h2 className="font-['Dancing_Script'] font-bold text-[36px] md:text-[43px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
+        <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
           Los detalles del Evento
         </h2>
 
@@ -33,16 +33,16 @@ export default function Detalles() {
                 <img src={iconCalendar.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">
+                <h3 className="text-[24px] lg:text-[28px] font-semibold text-brand-navy mb-2">
                   Cuándo
                 </h3>
                 <p className="text-[18px] font-bold text-brand-navy">
                   Sábado 25 de Abril de 2026
                 </p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   Las puertas abren a las 20:30hs.
                 </p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   La ceremonia comienza a las 21hs.
                 </p>
               </div>
@@ -54,16 +54,16 @@ export default function Detalles() {
                 <img src={iconLocation.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">
+                <h3 className="text-[24px] lg:text-[28px] font-semibold text-brand-navy mb-2">
                   Dónde
                 </h3>
                 <p className="text-[18px] font-bold text-brand-navy">
                   Bodega Spinoglio
                 </p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   Av. Don Pedro de Mendoza 8238
                 </p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   Montevideo, Departamento de Montevideo
                 </p>
               </div>
@@ -75,14 +75,14 @@ export default function Detalles() {
                 <img src={iconDresscode.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1">
-                <h3 className="text-[24px] md:text-[29px] lg:text-[28px] font-semibold text-brand-navy mb-2">
+                <h3 className="text-[24px] lg:text-[28px] font-semibold text-brand-navy mb-2">
                   Dress Code
                 </h3>
                 <p className="text-[18px] font-bold text-brand-navy">Formal</p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   Queremos que nos des tu mejor versión.
                 </p>
-                <p className="text-[16px] md:text-[19px] lg:text-[18px] text-brand-navy">
+                <p className="text-[16px] lg:text-[18px] text-brand-navy">
                   Pero ojo: no es una salida a un boliche.
                 </p>
               </div>

@@ -164,6 +164,30 @@ Users see a footer that reflects the latest Figma design updates.
 
 ---
 
+### User Story 11 - Navigation Scroll Color Swap (Priority: P1)
+
+A user scrolls down the page and the navigation bar swaps its color scheme from burgundy background with linen text to linen background with burgundy text, matching the Figma Nav component `Scroll=True` variant.
+
+**Why this priority**: The scroll behavior is a core interactive design element visible on every page, directly specified in Figma with dedicated component variants (Scroll=False / Scroll=True). Failing to implement it is a design deviation.
+
+**Independent Test**: Load homepage, scroll down past the hero section, and verify the nav background changes from burgundy (#640405) to linen (#F9F2E8) and all text/logo colors invert accordingly.
+
+**Figma reference**: Nav component set (node 10:60) — variants:
+
+- `Property 1=Web, Open=False, Scroll=False` (node 8:44) — burgundy bg, linen text
+- `Property 1=Web, Open=False, Scroll=True` (node 11:717) — linen bg, burgundy text
+- `Property 1=Mobile, Open=False, Scroll=False` (node 10:61) — burgundy bg, linen text
+- `Property 1=Mobile, Open=False, Scroll=True` (node 11:960) — linen bg, burgundy text
+
+**Acceptance Scenarios**:
+
+1. **Given** the page is at the top (no scroll), **When** the user views the nav, **Then** the background is burgundy (#640405) and text/logo are linen (#F9F2E8)
+2. **Given** the user scrolls down past a threshold, **When** the nav updates, **Then** the background becomes linen (#F9F2E8) and text/logo become burgundy (#640405)
+3. **Given** the user scrolls back to the top, **When** the nav updates, **Then** the colors revert to the default burgundy background state
+4. **Given** a mobile user with the menu open, **When** they scroll, **Then** the nav maintains the correct scroll-aware color (menu overlay inherits the active color scheme)
+
+---
+
 ### Edge Cases
 
 - What happens when text content in the Save the Date section is longer than expected?
@@ -192,6 +216,9 @@ Users see a footer that reflects the latest Figma design updates.
 - **FR-007**: Logo MUST be positioned at the left edge of the navbar (respecting safe-margin)
 - **FR-008**: Hamburger menu MUST be positioned at the right edge of the navbar (respecting safe-margin)
 - **FR-009**: Date text MUST fill remaining space with left alignment
+- **FR-025**: Nav MUST swap from burgundy background (#640405) + linen text (#F9F2E8) to linen background + burgundy text when user scrolls past a threshold
+- **FR-026**: Nav MUST revert to burgundy background when user scrolls back to the top
+- **FR-027**: Logo SVG colors MUST invert along with the nav color swap on scroll
 
 **Mobile Menu**
 
@@ -241,6 +268,8 @@ Users see a footer that reflects the latest Figma design updates.
 - **SC-006**: H1 and H2 headings pass visual inspection for bold weight and 2% letter-spacing
 - **SC-007**: Footer implementation matches current Figma design with no visual discrepancies
 - **SC-008**: Navigation bar maintains consistent color during scroll (no transparency changes)
+- **SC-010**: Nav background and text colors swap correctly between Scroll=False and Scroll=True Figma variants when scrolling
+- **SC-011**: Color swap transition is smooth and does not cause layout shift
 - **SC-009**: Mobile menu close icon color matches other icons in the UI
 
 ## Clarifications

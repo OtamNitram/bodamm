@@ -222,6 +222,28 @@
 
 ---
 
+## Phase 14: User Story 11 - Navigation Scroll Color Swap (Priority: P1)
+
+**Goal**: Nav swaps colors on scroll — burgundy bg → linen bg, linen text → burgundy text — matching Figma Scroll=True variants
+
+**Independent Test**: Scroll past hero section — nav background becomes linen (#F9F2E8), text becomes burgundy (#640405). Scroll back to top — colors revert.
+
+**Figma reference**: Nav component set (node 10:60) — Scroll=False (8:44) vs Scroll=True (11:717) for web; (10:61) vs (11:960) for mobile.
+
+### Implementation for User Story 11
+
+- [x] T051 [US11] Add scroll listener with threshold detection in `src/components/Nav.tsx` (e.g., `window.scrollY > 50`)
+- [x] T052 [US11] Toggle nav background between `bg-brand-burgundy` and `bg-brand-linen` based on scroll state in `src/components/Nav.tsx`
+- [x] T053 [US11] Toggle nav text color between `text-brand-linen` and `text-brand-burgundy` based on scroll state in `src/components/Nav.tsx`
+- [x] T054 [US11] Swap logo SVG colors to match active color scheme (linen when default, burgundy when scrolled) in `src/components/Nav.tsx`
+- [x] T055 [US11] Add smooth CSS transition for the color swap (e.g., `transition-colors duration-300`)
+- [x] T056 [US11] Ensure mobile menu overlay inherits the correct scroll-aware colors in `src/components/Nav.tsx`
+- [x] T057 [US11] Verify scroll behavior at 375px, 800px, and 1200px viewports against Figma variants
+
+**Checkpoint**: User Story 11 complete — nav color swaps on scroll matching Figma
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -231,7 +253,8 @@
 - **User Stories (Phases 3-12)**: All depend on Foundational completion
   - P1 stories (US1-US3) should complete before P2 stories
   - Stories can proceed in parallel within same priority
-- **Polish (Phase 13)**: Depends on all user stories complete
+- **Phase 14 (US11)**: Depends on Foundational; modifies Nav.tsx so should run after US3/US4
+- **Polish (Phase 13)**: Depends on all user stories complete (including Phase 14)
 
 ### User Story Dependencies
 
@@ -247,6 +270,7 @@
 | US8   | P2       | US2             | Spacing tokens from US2 |
 | US9   | P2       | Phase 2         | Foundational typography |
 | US10  | P3       | Phase 2         | None                    |
+| US11  | P1       | US4             | US3, US4 (same Nav.tsx) |
 
 ### Parallel Opportunities
 
@@ -262,6 +286,7 @@
 
 - US5 (GiftList.tsx) ‖ US6 (assets/icons) ‖ US7 (Asistencia.tsx)
 - US4 must wait for US3 (both modify Nav.tsx)
+- US11 should wait for US4 (all modify Nav.tsx)
 - US8 should wait for US2 (depends on spacing tokens)
 
 ---
@@ -309,7 +334,7 @@ Execute phases sequentially in priority order:
 
 ## Notes
 
-- All changes are CSS/styling only - no new JavaScript
+- Most changes are CSS/styling only; US11 adds a scroll event listener (minimal JS)
 - Figma is source of truth per Constitution
 - Design system values documented in research.md
 - Implementation details in quickstart.md
@@ -322,7 +347,7 @@ Execute phases sequentially in priority order:
 
 | Metric                 | Value               |
 | ---------------------- | ------------------- |
-| Total Tasks            | 50                  |
+| Total Tasks            | 57                  |
 | Setup Tasks            | 3                   |
 | Foundational Tasks     | 3                   |
 | US1 Tasks              | 4                   |
@@ -335,6 +360,7 @@ Execute phases sequentially in priority order:
 | US8 Tasks              | 3                   |
 | US9 Tasks              | 3                   |
 | US10 Tasks             | 4                   |
+| US11 Tasks             | 7                   |
 | Polish Tasks           | 5                   |
 | Parallel Opportunities | 15 tasks marked [P] |
-| Estimated Time         | 2-3 hours           |
+| Estimated Time         | 3-4 hours           |

@@ -17,23 +17,19 @@ export default function GiftList() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-12 flex flex-col items-center gap-8 md:gap-12">
-        <h2 className="font-['Dancing_Script'] font-bold text-[36px] md:text-[56px] text-brand-linen leading-normal text-center tracking-[0.02em]">
+        <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-linen leading-normal text-center tracking-[0.02em]">
           Gift List
         </h2>
 
-        <div className="text-center text-brand-linen text-[16px] md:text-[18px] leading-normal max-w-[800px] mx-auto px-2">
-          <p className="mb-0">
-            Lo que más nos importa es que vengas a{" "}
-            <span className="font-bold">darlo todo en la pista</span> y a{" "}
-            <span className="font-bold">
-              tomarte hasta el agua de los floreros.
-            </span>
-          </p>
-          <p>
-            Pero si querés colaborar con nosotros, vamos a estar más que
-            agradecidos.
-          </p>
-        </div>
+        <p className="text-center text-brand-linen text-[16px] lg:text-[18px] leading-normal w-full max-w-[800px]">
+          Lo que más nos importa es que vengas a{" "}
+          <span className="font-bold">darlo todo en la pista</span> y a{" "}
+          <span className="font-bold">
+            tomarte hasta el agua de los floreros
+          </span>
+          . Pero si querés colaborar con nosotros, vamos a estar más que
+          agradecidos.
+        </p>
 
         <div className="flex flex-col lg:flex-row gap-6 w-full">
           {/* Left Column */}
@@ -44,11 +40,11 @@ export default function GiftList() {
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1 text-brand-linen">
-                <h3 className="text-[20px] md:text-[28px] font-semibold mb-1 md:mb-2">
+                <h3 className="text-[20px] lg:text-[28px] font-semibold mb-1 lg:mb-2">
                   My Chemical Romance
                 </h3>
-                <p className="text-[14px] md:text-[18px]">ARS $ 420.500</p>
-                <p className="text-[14px] md:text-[18px]">USD $ 300</p>
+                <p className="text-[14px] lg:text-[18px]">ARS $ 420.500</p>
+                <p className="text-[14px] lg:text-[18px]">USD $ 300</p>
               </div>
             </div>
 
@@ -58,11 +54,11 @@ export default function GiftList() {
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1 text-brand-linen">
-                <h3 className="text-[20px] md:text-[28px] font-semibold mb-1 md:mb-2">
+                <h3 className="text-[20px] lg:text-[28px] font-semibold mb-1 lg:mb-2">
                   AC/DC + The Pretty Reckless
                 </h3>
-                <p className="text-[14px] md:text-[18px]">ARS $ 793.500</p>
-                <p className="text-[14px] md:text-[18px]">USD $ 590</p>
+                <p className="text-[14px] lg:text-[18px]">ARS $ 793.500</p>
+                <p className="text-[14px] lg:text-[18px]">USD $ 590</p>
               </div>
             </div>
           </div>
@@ -75,11 +71,11 @@ export default function GiftList() {
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1 text-brand-linen">
-                <h3 className="text-[20px] md:text-[28px] font-semibold mb-1 md:mb-2">
+                <h3 className="text-[20px] lg:text-[28px] font-semibold mb-1 lg:mb-2">
                   Korn
                 </h3>
-                <p className="text-[14px] md:text-[18px]">ARS $ 517.500</p>
-                <p className="text-[14px] md:text-[18px]">USD $ 390</p>
+                <p className="text-[14px] lg:text-[18px]">ARS $ 517.500</p>
+                <p className="text-[14px] lg:text-[18px]">USD $ 390</p>
               </div>
             </div>
 
@@ -89,14 +85,14 @@ export default function GiftList() {
                 <img src={iconBank.src} alt="" className="w-full h-full" />
               </div>
               <div className="flex-1 text-brand-darkGreen">
-                <h3 className="text-[20px] md:text-[28px] font-semibold mb-1 md:mb-2">
+                <h3 className="text-[20px] lg:text-[28px] font-semibold mb-1 lg:mb-2">
                   Cuentas
                 </h3>
-                <p className="text-[14px] md:text-[18px]">
+                <p className="text-[14px] lg:text-[18px]">
                   <span className="font-bold">PayPal:</span>{" "}
                   mignonemarianam@gmail.com
                 </p>
-                <p className="text-[14px] md:text-[18px] font-bold">
+                <p className="text-[14px] lg:text-[18px] font-bold">
                   Bco. Santander (UY): a definir
                 </p>
               </div>
