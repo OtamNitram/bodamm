@@ -3,6 +3,8 @@ export interface ExternalLinks {
     playlistUrl: string;
   };
   contact: {
+    martinWhatsappUrl: string;
+    marianaWhatsappUrl: string;
     whatsappUrl: string;
     telegramUrl: string;
   };
@@ -16,6 +18,8 @@ export interface ExternalLinks {
   };
   rsvp: {
     pageUrl: string;
+    apiSearchUrl: string;
+    apiSubmitUrl: string;
   };
 }
 
@@ -24,7 +28,9 @@ export const externalLinks: ExternalLinks = {
     playlistUrl: "https://open.spotify.com/playlist/6qJUsnH0MfqoR6q5gUMJi5",
   },
   contact: {
-    whatsappUrl: "#whatsapp-mock", // Mock - will show alert
+    martinWhatsappUrl: "https://wa.me/59899318813",
+    marianaWhatsappUrl: "https://wa.me/59899158944",
+    whatsappUrl: "https://wa.me/59899318813",
     telegramUrl: "#telegram-mock", // Mock - will show alert
   },
   maps: {
@@ -37,6 +43,8 @@ export const externalLinks: ExternalLinks = {
     alternativeLinkUrl: "https://example.com/photos", // TODO: Replace with actual alternative link
   },
   rsvp: {
-    pageUrl: "/rsvp",
+    pageUrl: "/#asistencia",
+    apiSearchUrl: "/.netlify/functions/rsvp-search",
+    apiSubmitUrl: "/.netlify/functions/rsvp-submit",
   },
 };

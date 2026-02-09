@@ -32,6 +32,5 @@
 ## Notes
 
 - Assumptions section documents reasonable defaults for storage mechanism, session detection, and access control.
-- Zone list (barrios de Montevideo, Costa de Oro) is referenced as static data — specific values to be defined at planning/implementation time.
 - Figma design context captured from node 97:143 — includes search bar, checkboxes for guests/restrictions, submit button, WhatsApp contact section. Mobile responsive variant exists in the Figma project.
 - WhatsApp numbers confirmed: Martín (+598 99 318 813), Mariana (+598 99 158 944).

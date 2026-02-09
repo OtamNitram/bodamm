@@ -3,17 +3,16 @@
 **Feature Branch**: `004-rsvp`  
 **Created**: 2026-02-07  
 **Status**: Draft  
-**Input**: User description: "Sección RSVP integrada en la web de boda para que invitados confirmen asistencia, indiquen restricciones alimentarias y zona de origen, con lista privada accesible solo por los novios."
+**Input**: User description: "Sección RSVP integrada en la web de boda para que invitados confirmen asistencia e indiquen restricciones alimentarias, con lista privada accesible solo por los novios."
 
 ## Clarifications
 
 ### Session 2026-02-07
 
-- Q: ¿Las restricciones alimentarias y la zona de origen se registran por grupo o por invitado individual? → A: Restricciones por invitado individual, zona por grupo.
+- Q: ¿Las restricciones alimentarias se registran por grupo o por invitado individual? → A: Restricciones por invitado individual.
 - Q: ¿El formulario RSVP se integra inline en la página principal o vive en una página separada /rsvp? → A: Inline — el formulario reemplaza la sección Asistencia actual en la página principal.
 - Q: ¿El sistema debe bloquear envíos después del 25 de marzo o solo mostrar un aviso? → A: Bloqueo suave — después de la fecha se oculta el formulario y se muestra solo la opción de contacto por WhatsApp.
 - Q: ¿Cómo se capturan las restricciones alimentarias? → A: En vez de checkboxes predefinidos, cada invitado individual tiene un toggle sí/no para indicar si tiene restricciones, y si marca sí se muestra un campo de texto libre para describirlas. UI más limpia.
-- Q: ¿Cuándo se muestra el campo de zona de origen? → A: Solo si el grupo opta por ser contactado para coordinación de transporte (no implica transporte pago por los novios). Si opta sí, la zona es obligatoria: barrio de Montevideo, ciudad de la Costa, u "Otro" con texto libre.
 - Q: ¿Puede un invitado re-registrarse? → A: Sí, se sobrescribe la información anterior. Antes de enviar se muestra un modal de confirmación con el resumen de lo seleccionado para evitar errores.
 - Q: ¿Cómo evitar que gente ajena explore la lista de invitados? → A: Sin typeahead/autocomplete. El invitado escribe nombre y apellido completo y presiona "Buscar". Match exacto (tolerante a mayúsculas/acentos). No se expone la lista.
 
@@ -21,7 +20,7 @@
 
 ### User Story 1 — Buscar nombre y confirmar asistencia (Priority: P1)
 
-Un invitado entra a la sección "Confirmación de Asistencia" integrada directamente en la página principal de la web de boda (reemplaza la sección Asistencia actual). Escribe su nombre y apellido completo en el campo de búsqueda (sin typeahead/autocomplete para no exponer la lista) y presiona "Buscar". El sistema hace un match exacto (tolerante a mayúsculas/acentos). Si encuentra coincidencia, muestra los miembros de su grupo (por ejemplo, si Martín y Mariana son pareja, aparecen ambos). El invitado selecciona con checkboxes quiénes del grupo confirman asistencia. Antes de enviar, se muestra un modal de confirmación con el resumen de todas las selecciones (asistencia, restricciones, transporte). El invitado confirma y envía. Si ya había registrado antes, la nueva información sobrescribe la anterior.
+Un invitado entra a la sección "Confirmación de Asistencia" integrada directamente en la página principal de la web de boda (reemplaza la sección Asistencia actual). Escribe su nombre y apellido completo en el campo de búsqueda (sin typeahead/autocomplete para no exponer la lista) y presiona "Buscar". El sistema hace un match exacto (tolerante a mayúsculas/acentos). Si encuentra coincidencia, muestra los miembros de su grupo (por ejemplo, si Martín y Mariana son pareja, aparecen ambos). El invitado selecciona con checkboxes quiénes del grupo confirman asistencia. Antes de enviar, se muestra un modal de confirmación con el resumen de todas las selecciones (asistencia, restricciones). El invitado confirma y envía. Si ya había registrado antes, la nueva información sobrescribe la anterior.
 
 **Why this priority**: Es la funcionalidad principal del RSVP — sin esto no hay confirmación de asistencia posible.
 
@@ -100,27 +99,15 @@ Al entrar por primera vez a la página en una sesión, aparece un pop-up discret
 
 ---
 
-### User Story 6 — Coordinación de transporte y zona de origen (Priority: P3)
+### User Story 6
 
-Dentro del formulario de RSVP, a nivel de grupo, se muestra un toggle preguntando si el grupo desea ser contactado para coordinación de transporte con otros invitados (nota: esto no implica transporte pago por los novios, sino ayuda para conectar invitados que viajan desde la misma zona). Si el grupo marca "sí", se despliega un selector obligatorio de zona: barrios de Montevideo, ciudades de la Costa, o un campo "Otro" con texto libre. Si marca "no", no se muestra el selector de zona.
-
-**Why this priority**: Información útil para logística de transporte pero no bloquea la confirmación de asistencia. El opt-in evita mostrar campos innecesarios.
-
-**Independent Test**: Se puede probar marcando "sí" en el toggle de transporte, seleccionando una zona, y verificando que se persiste. También probar que si marca "no", no se pide zona.
-
-**Acceptance Scenarios**:
-
-1. **Given** el formulario de RSVP, **When** el grupo marca "sí" en el toggle de coordinación de transporte, **Then** se despliega un selector de zona obligatorio (barrios de Montevideo, ciudades de la Costa, u "Otro").
-2. **Given** el selector de zona visible, **When** el grupo selecciona una zona predefinida, **Then** la zona se guarda con la confirmación.
-3. **Given** el selector de zona visible, **When** el grupo selecciona "Otro" y escribe su ubicación, **Then** la ubicación personalizada se guarda.
-4. **Given** el toggle de transporte en "sí", **When** el invitado intenta enviar sin seleccionar zona, **Then** se muestra un error de validación indicando que la zona es obligatoria.
-5. **Given** el toggle de transporte en "no" (por defecto), **When** el invitado envía el formulario, **Then** se guarda sin zona ni interés en coordinación de transporte.
+_Removed — Transport coordination moved to a separate spec._
 
 ---
 
 ### User Story 7 — Acceso privado a la lista de invitados (Priority: P2)
 
-Martín y Mariana son los únicos que pueden ver y gestionar la lista completa de invitados con todas las confirmaciones, restricciones alimentarias y zonas de origen. La lista debe ser accesible de forma privada.
+Martín y Mariana son los únicos que pueden ver y gestionar la lista completa de invitados con todas las confirmaciones y restricciones alimentarias. La lista debe ser accesible de forma privada.
 
 **Why this priority**: Los novios necesitan ver las confirmaciones para planificar el evento. La privacidad de los datos de los invitados es fundamental.
 
@@ -128,7 +115,7 @@ Martín y Mariana son los únicos que pueden ver y gestionar la lista completa d
 
 **Acceptance Scenarios**:
 
-1. **Given** Martín o Mariana con acceso autorizado, **When** acceden al mecanismo de consulta de la lista, **Then** ven la lista completa con: nombre, apellido, confirmación, restricciones alimentarias y zona de origen de cada invitado.
+1. **Given** Martín o Mariana con acceso autorizado, **When** acceden al mecanismo de consulta de la lista, **Then** ven la lista completa con: nombre, apellido, confirmación y restricciones alimentarias de cada invitado.
 2. **Given** un visitante no autorizado, **When** intenta acceder a la lista de invitados, **Then** no puede ver ni modificar los datos.
 
 ---
@@ -149,24 +136,24 @@ Martín y Mariana son los únicos que pueden ver y gestionar la lista completa d
 - **FR-001**: El sistema DEBE mostrar un campo de búsqueda donde el invitado escribe su nombre y apellido completo y presiona "Buscar". Sin typeahead ni autocomplete. Match exacto tolerante a mayúsculas/acentos.
 - **FR-002**: El sistema DEBE mostrar los miembros del grupo del invitado encontrado, cada uno con un checkbox para confirmar o desconfirmar asistencia.
 - **FR-003**: El sistema DEBE mostrar, por cada invitado individual del grupo, un toggle (sí/no) para indicar si tiene restricciones alimentarias. Si marca "sí", se despliega un campo de texto libre para describir la restricción. No se usan opciones predefinidas.
-- **FR-004**: El sistema DEBE persistir las confirmaciones, restricciones alimentarias y zona de origen de forma privada en el servidor.
+- **FR-004**: El sistema DEBE persistir las confirmaciones y restricciones alimentarias de forma privada en el servidor.
 - **FR-005**: El sistema DEBE mostrar un mensaje de éxito tras enviar el formulario correctamente, con la opción de agregar el evento al calendario.
 - **FR-006**: El sistema DEBE ofrecer botones de contacto directo por WhatsApp a Martín (+598 99 318 813) y Mariana (+598 99 158 944).
 - **FR-007**: El sistema DEBE mostrar un pop-up en la primera visita de la sesión invitando al usuario a confirmar asistencia, con navegación directa a la sección RSVP.
-- **FR-008**: El sistema DEBE mostrar un toggle a nivel de grupo preguntando si desean coordinación de transporte. Si marca "sí", DEBE mostrar un selector obligatorio de zona (barrios de Montevideo, ciudades de la Costa, u "Otro" con texto libre). Si marca "no", no se muestra zona.
+- ~~**FR-008**: _Removed — Transport coordination moved to a separate spec._~~
 - **FR-009**: La lista de invitados y sus respuestas DEBE ser accesible exclusivamente por los novios (Martín y Mariana).
 - **FR-010**: El diseño DEBE respetar fielmente la UI definida en Figma (colores, fuentes, márgenes, fondo) y ser responsivo para desktop y mobile. Cualquier componente nuevo que no esté en Figma (modal de confirmación, pop-up de bienvenida, mensajes de error/éxito, etc.) DEBE respetar el theme existente del proyecto (paleta de colores brand: darkGreen, eucalyptus, burgundy, linen, terracotta, navy; fuentes Dancing Script y Lato; border-radius y spacing consistentes).
 - **FR-014**: El formulario RSVP DEBE integrarse inline en la página principal, reemplazando la sección Asistencia actual (QR code y layout anterior). No existe como página separada.
 - **FR-011**: Si el invitado ya confirmó previamente, el sistema DEBE mostrar su estado previo al buscar su nombre (checkboxes pre-marcados, restricciones visibles) y permitir modificaciones. Al re-enviar, la nueva información sobrescribe la anterior.
 - **FR-012**: La búsqueda DEBE usar match exacto sobre nombre+apellido (tolerante a mayúsculas y acentos). NO DEBE usar typeahead ni autocomplete para evitar exponer la lista de invitados.
-- **FR-016**: Antes de enviar el formulario, el sistema DEBE mostrar un modal de confirmación con el resumen de todas las selecciones (quiénes asisten, restricciones alimentarias, coordinación de transporte y zona). El invitado debe confirmar explícitamente para proceder al envío.
+- **FR-016**: Antes de enviar el formulario, el sistema DEBE mostrar un modal de confirmación con el resumen de todas las selecciones (quiénes asisten, restricciones alimentarias). El invitado debe confirmar explícitamente para proceder al envío.
 - **FR-013**: El sistema DEBE generar un archivo de evento de calendario (.ics) o enlace de calendario con la fecha (25 de abril de 2026, 20:30 hs), lugar (Bodega Spinoglio) y nombre del evento.
 - **FR-015**: Después del 25 de marzo de 2026, el sistema DEBE ocultar el formulario RSVP y mostrar un mensaje de plazo vencido junto con los botones de contacto por WhatsApp como única vía de confirmación.
 
 ### Key Entities
 
 - **Invitado (Guest)**: Representa a cada persona invitada. Atributos: apellido, nombre, tiene restricción alimentaria (sí/no), descripción de restricción (texto libre, solo si tiene), confirmación de asistencia (sí/no).
-- **Grupo (Group)**: Agrupación lógica de invitados relacionados (ej. pareja, familia). Un grupo contiene uno o más invitados. La búsqueda de un miembro muestra todo el grupo. Atributos de grupo: interés en coordinación de transporte (sí/no), zona de origen (obligatoria si interés=sí; barrio de Montevideo, ciudad de la Costa, u otro texto libre).
+- **Grupo (Group)**: Agrupación lógica de invitados relacionados (ej. pareja, familia). Un grupo contiene uno o más invitados. La búsqueda de un miembro muestra todo el grupo.
 - **Lista de invitados (Guest List)**: Colección privada de todos los invitados y sus datos. Almacenada de forma simple en el servidor (ej. CSV o formato equivalente). Solo accesible por los novios.
 
 ## Success Criteria _(mandatory)_
@@ -186,7 +173,5 @@ Martín y Mariana son los únicos que pueden ver y gestionar la lista completa d
 - El almacenamiento de la lista puede ser un archivo simple en el servidor (CSV, JSON) dado el tamaño reducido esperado de invitados (~100-200).
 - El pop-up de sesión usa almacenamiento del navegador (sessionStorage) para detectar la primera visita.
 - La fecha límite de confirmación (25 de marzo de 2026) activa un bloqueo suave: después de esa fecha el formulario se oculta y solo quedan disponibles los botones de WhatsApp.
-- Las zonas de Montevideo y ciudades de la Costa se definen como una lista estática en el código, no requieren gestión dinámica.
 - No hay nombres+apellidos duplicados en la lista de invitados, por lo que el match exacto es suficiente como mecanismo de identificación.
-- La coordinación de transporte es para conectar invitados entre sí, no implica transporte pago por los novios.
 - El mecanismo de acceso privado para los novios puede ser simple (ej. ruta protegida con contraseña básica, acceso directo al archivo del servidor) dado que el sitio es estático/semi-estático.

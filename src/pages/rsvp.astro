@@ -1,52 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav';
-import Button from '../components/Button';
-import { externalLinks } from '../config/links';
 ---
 
-<Layout title="Confirmación de Asistencia - [Nombres]">
-  <Nav client:idle />
-  
-  <main class="min-h-screen flex items-center justify-center bg-brand-linen py-16">
-    <div class="container mx-auto px-4">
-      <div class="max-w-2xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl font-semibold text-brand-darkGreen mb-6">
-          Confirmación de Asistencia
-        </h1>
-        
-        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
-          <p class="text-2xl text-brand-eucalyptus font-semibold mb-4">
-            Próximamente disponible
-          </p>
-          
-          <p class="text-lg text-brand-navy mb-8">
-            Estamos preparando el formulario de confirmación. Por el momento, podés confirmar tu asistencia por los siguientes medios:
-          </p>
-          
-          <div class="border-t border-brand-eucalyptus pt-8">
-            <p class="text-brand-navy font-semibold mb-6">
-              Mientras tanto, podés confirmar por:
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href={externalLinks.contact.whatsappUrl}>
-                WhatsApp
-              </Button>
-              <Button href={externalLinks.contact.telegramUrl} variant="secondary">
-                Telegram
-              </Button>
-            </div>
-          </div>
-        </div>
-        
-        <a 
-          href="/"
-          class="inline-block text-brand-eucalyptus hover:text-brand-darkGreen font-semibold underline"
-        >
-          ← Volver al inicio
-        </a>
-      </div>
-    </div>
-  </main>
+<Layout title="Redirigiendo...">
+  <meta slot="head" http-equiv="refresh" content="0;url=/#asistencia" />
+  <div class="min-h-screen flex items-center justify-center bg-brand-linen">
+    <p class="text-brand-navy text-lg">Redirigiendo...</p>
+  </div>
 </Layout>
