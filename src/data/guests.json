@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "id": "g1",
+      "members": [
+        { "firstName": "Martín", "lastName": "Mato" },
+        { "firstName": "Mariana", "lastName": "Mignone" }
+      ]
+    },
+    {
+      "id": "g2",
+      "members": [
+        { "firstName": "Juan", "lastName": "Pérez" },
+        { "firstName": "Ana", "lastName": "García" },
+        { "firstName": "Lucía", "lastName": "Pérez" }
+      ]
+    }
+  ]
+}

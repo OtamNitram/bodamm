@@ -6,9 +6,10 @@ describe("External Links Configuration", () => {
     // Spotify
     expect(externalLinks.spotify.playlistUrl).toMatch(/^https:\/\//);
 
-    // Contact (may be placeholders, but should be valid format)
+    // Contact
     expect(externalLinks.contact.whatsappUrl).toMatch(/^https:\/\//);
-    expect(externalLinks.contact.telegramUrl).toMatch(/^https:\/\//);
+    expect(externalLinks.contact.martinWhatsappUrl).toMatch(/^https:\/\//);
+    expect(externalLinks.contact.marianaWhatsappUrl).toMatch(/^https:\/\//);
 
     // Maps (may be placeholders, but should be valid format)
     expect(externalLinks.maps.embedUrl).toMatch(/^https:\/\//);
@@ -21,12 +22,18 @@ describe("External Links Configuration", () => {
 
   it("should have correct Spotify playlist URL", () => {
     expect(externalLinks.spotify.playlistUrl).toBe(
-      "https://open.spotify.com/playlist/6qJUsnH0MfqoR6q5gUMJi5"
+      "https://open.spotify.com/playlist/6qJUsnH0MfqoR6q5gUMJi5",
     );
   });
 
-  it("should have RSVP page URL", () => {
-    expect(externalLinks.rsvp.pageUrl).toBe("/rsvp");
+  it("should have RSVP URLs", () => {
+    expect(externalLinks.rsvp.pageUrl).toBe("/#asistencia");
+    expect(externalLinks.rsvp.apiSearchUrl).toBe(
+      "/.netlify/functions/rsvp-search",
+    );
+    expect(externalLinks.rsvp.apiSubmitUrl).toBe(
+      "/.netlify/functions/rsvp-submit",
+    );
   });
 
   it("should have all required link properties", () => {
@@ -38,5 +45,9 @@ describe("External Links Configuration", () => {
     expect(externalLinks).toHaveProperty("photos.qrDestinationUrl");
     expect(externalLinks).toHaveProperty("photos.alternativeLinkUrl");
     expect(externalLinks).toHaveProperty("rsvp.pageUrl");
+    expect(externalLinks).toHaveProperty("rsvp.apiSearchUrl");
+    expect(externalLinks).toHaveProperty("rsvp.apiSubmitUrl");
+    expect(externalLinks).toHaveProperty("contact.martinWhatsappUrl");
+    expect(externalLinks).toHaveProperty("contact.marianaWhatsappUrl");
   });
 });
