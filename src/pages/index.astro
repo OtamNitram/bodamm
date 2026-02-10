@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import Detalles from '../components/Detalles';
+import Asistencia from '../components/Asistencia';
+import TrasladoForm from '../components/TrasladoForm';
 import GiftList from '../components/GiftList';
 import FotosAsistenciaWrapper from '../components/FotosAsistenciaWrapper';
 import Gracias from '../components/Gracias';
@@ -13,6 +15,8 @@ import RsvpPopup from '../components/RsvpPopup';
   <Nav client:idle />
   <Hero client:load />
   <Detalles client:load />
+  <Asistencia client:load />
+  <TrasladoForm client:load />
   <GiftList client:load />
   <FotosAsistenciaWrapper client:load />
   <Gracias client:load />

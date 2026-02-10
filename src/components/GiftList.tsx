@@ -89,11 +89,15 @@ export default function GiftList() {
                   Cuentas
                 </h3>
                 <p className="text-[14px] lg:text-[18px]">
-                  <span className="font-bold">PayPal:</span>{" "}
-                  mignonemarianam@gmail.com
+                  <span className="font-bold">PayPal:</span> @MarianaMignone
                 </p>
-                <p className="text-[14px] lg:text-[18px] font-bold">
-                  Bco. Santander (UY): a definir
+                <p className="text-[14px] lg:text-[18px]">
+                  <span className="font-bold">Bco. Santander (UYU):</span>{" "}
+                  123343456
+                </p>
+                <p className="text-[14px] lg:text-[18px]">
+                  <span className="font-bold">Bco. Santander (USD):</span>{" "}
+                  123343456
                 </p>
               </div>
             </div>

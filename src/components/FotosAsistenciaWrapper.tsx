@@ -1,11 +1,10 @@
 import patternLeft from "../assets/images/pattern-left.webp";
 import Fotos from "./Fotos";
-import Asistencia from "./Asistencia";
 
 export default function FotosAsistenciaWrapper() {
   return (
     <div className="relative bg-brand-linen overflow-hidden">
-      {/* Decorative Pattern - Left edge, spans both Fotos and Asistencia sections */}
+      {/* Decorative Pattern - Left edge */}
       <div className="absolute bottom-0 left-0 w-[538px] h-[1200px] flex items-center justify-center pointer-events-none">
         <div className="rotate-[-90deg]">
           <div className="w-[1200px] h-[538px] opacity-10 relative overflow-hidden">
@@ -21,7 +20,6 @@ export default function FotosAsistenciaWrapper() {
 
       {/* Content sections */}
       <Fotos />
-      <Asistencia />
     </div>
   );
 }
