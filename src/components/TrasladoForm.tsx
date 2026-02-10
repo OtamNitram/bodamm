@@ -233,7 +233,7 @@ export default function TrasladoForm() {
                 <select
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
-                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="bg-white border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 >
                   <option value="">Seleccioná tu punto de partida</option>
                   {options.map((opt) => (
