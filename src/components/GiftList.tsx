@@ -1,8 +1,14 @@
 import giftlistBg from "../assets/images/giftlist-bg.jpg";
 import iconGift from "../assets/images/icon-gift.svg";
 import iconBank from "../assets/images/icon-bank.svg";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export default function GiftList() {
+  const titleRef = useScrollReveal<HTMLHeadingElement>();
+  const descRef = useScrollReveal<HTMLParagraphElement>({ delay: 100 });
+  const col1Ref = useScrollReveal<HTMLDivElement>({ delay: 200 });
+  const col2Ref = useScrollReveal<HTMLDivElement>({ delay: 300 });
+
   return (
     <section id="gift-list" className="relative py-24 overflow-hidden">
       {/* Background with overlay */}
@@ -17,11 +23,17 @@ export default function GiftList() {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-12 flex flex-col items-center gap-8 md:gap-12">
-        <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-linen leading-normal text-center tracking-[0.02em]">
+        <h2
+          ref={titleRef}
+          className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-linen leading-normal text-center tracking-[0.02em]"
+        >
           Gift List
         </h2>
 
-        <p className="text-center text-brand-linen text-[16px] lg:text-[18px] leading-normal w-full max-w-[800px]">
+        <p
+          ref={descRef}
+          className="text-center text-brand-linen text-[16px] lg:text-[18px] leading-normal w-full max-w-[800px]"
+        >
           Lo que más nos importa es que vengas a{" "}
           <span className="font-bold">darlo todo en la pista</span> y a{" "}
           <span className="font-bold">
@@ -33,9 +45,9 @@ export default function GiftList() {
 
         <div className="flex flex-col lg:flex-row gap-6 w-full">
           {/* Left Column */}
-          <div className="flex-1 flex flex-col gap-6">
+          <div ref={col1Ref} className="flex-1 flex flex-col gap-6">
             {/* My Chemical Romance */}
-            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px]">
+            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
@@ -49,7 +61,7 @@ export default function GiftList() {
             </div>
 
             {/* AC/DC + The Pretty Reckless */}
-            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px]">
+            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
@@ -64,9 +76,9 @@ export default function GiftList() {
           </div>
 
           {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-6">
+          <div ref={col2Ref} className="flex-1 flex flex-col gap-6">
             {/* Korn */}
-            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px]">
+            <div className="bg-[rgba(10,52,40,0.85)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconGift.src} alt="" className="w-full h-full" />
               </div>
@@ -80,7 +92,7 @@ export default function GiftList() {
             </div>
 
             {/* Cuentas */}
-            <div className="bg-[rgba(249,242,232,0.8)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px]">
+            <div className="bg-[rgba(249,242,232,0.8)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-auto md:h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <div className="w-16 h-[53px] md:w-20 md:h-[66.47px] flex-shrink-0">
                 <img src={iconBank.src} alt="" className="w-full h-full" />
               </div>

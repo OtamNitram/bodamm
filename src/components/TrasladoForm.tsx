@@ -11,11 +11,14 @@ import type {
 } from "../lib/traslado-types";
 import Button from "./Button";
 import trasladoBg from "../assets/images/traslado-bg.webp";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const ZONES: ZoneCategory[] = ["Montevideo", "Costa de Oro", "Otro"];
 
 export default function TrasladoForm() {
   const deadlinePassed = isDeadlinePassed();
+  const titleRef = useScrollReveal<HTMLDivElement>();
+  const formRef = useScrollReveal<HTMLFormElement>({ delay: 200 });
 
   const [zona, setZona] = useState<ZoneCategory | null>(null);
   const [puntoDePartida, setPuntoDePartida] = useState("");
@@ -151,7 +154,10 @@ export default function TrasladoForm() {
 
       <div className="container mx-auto px-4 md:px-12 relative z-10 flex flex-col items-center gap-12">
         {/* Title */}
-        <div className="text-center flex flex-col items-center gap-2">
+        <div
+          ref={titleRef}
+          className="text-center flex flex-col items-center gap-2"
+        >
           <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy leading-normal tracking-[0.02em]">
             Traslado: La Van Comunitaria
           </h2>
@@ -183,6 +189,7 @@ export default function TrasladoForm() {
         {/* Form */}
         {status !== "success" && (
           <form
+            ref={formRef}
             onSubmit={handleSubmit}
             className="bg-white/20 border border-brand-darkGreen/20 rounded-xl max-w-[800px] w-full px-4 md:px-8 py-6 flex flex-col gap-6"
           >

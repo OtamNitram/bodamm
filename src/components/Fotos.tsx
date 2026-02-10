@@ -1,15 +1,20 @@
 import { externalLinks } from "../config/links";
 import spotifyIcon from "../assets/icons/spotify.svg";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const SHOW_FOTOS = false;
 
 export default function Fotos() {
+  const temaikenesRef = useScrollReveal<HTMLDivElement>();
+  const fotosRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <section className="relative pt-24">
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         {/* Temaikenes */}
         <div
           id="temaikenes"
+          ref={temaikenesRef}
           className="flex flex-col items-center gap-12 mb-24"
         >
           <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center leading-normal tracking-[0.02em]">
@@ -78,7 +83,11 @@ export default function Fotos() {
         </div>
 
         {/* Fotos - always visible placeholder with anchor */}
-        <div id="fotos" className="flex flex-col items-center gap-4 pb-24">
+        <div
+          ref={fotosRef}
+          id="fotos"
+          className="flex flex-col items-center gap-4 pb-24"
+        >
           <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center leading-normal tracking-[0.02em]">
             Fotos
           </h2>

@@ -2,15 +2,25 @@ import { externalLinks } from "../config/links";
 import iconCalendar from "../assets/images/icon-calendar.svg";
 import iconLocation from "../assets/images/icon-location.svg";
 import iconDresscode from "../assets/images/icon-dresscode.svg";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 export default function Detalles() {
+  const titleRef = useScrollReveal<HTMLHeadingElement>();
+  const card1Ref = useScrollReveal<HTMLDivElement>({ delay: 100 });
+  const card2Ref = useScrollReveal<HTMLDivElement>({ delay: 200 });
+  const card3Ref = useScrollReveal<HTMLDivElement>({ delay: 300 });
+  const mapRef = useScrollReveal<HTMLDivElement>({ delay: 200 });
+
   return (
     <section
       id="detalles"
       className="relative py-14 md:py-24 bg-brand-linen overflow-hidden"
     >
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
+        <h2
+          ref={titleRef}
+          className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]"
+        >
           Los detalles del Evento
         </h2>
 
@@ -18,7 +28,10 @@ export default function Detalles() {
           {/* Details Column - Stacked on mobile/tablet, left column on desktop */}
           <div className="flex-1 space-y-6">
             {/* Cuándo */}
-            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div
+              ref={card1Ref}
+              className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconCalendar.src} alt="" className="w-full h-full" />
               </div>
@@ -39,7 +52,10 @@ export default function Detalles() {
             </div>
 
             {/* Dónde */}
-            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div
+              ref={card2Ref}
+              className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="w-[60px] h-[49.26px] md:w-20 md:h-[65.68px] flex-shrink-0">
                 <img src={iconLocation.src} alt="" className="w-full h-full" />
               </div>
@@ -60,7 +76,10 @@ export default function Detalles() {
             </div>
 
             {/* Dress Code */}
-            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div
+              ref={card3Ref}
+              className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px] hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconDresscode.src} alt="" className="w-full h-full" />
               </div>
@@ -80,7 +99,7 @@ export default function Detalles() {
           </div>
 
           {/* Map Column - Below details on mobile/tablet, right column on desktop */}
-          <div className="flex-1">
+          <div ref={mapRef} className="flex-1">
             <div className="w-full h-[400px] md:h-[602px] rounded-[20px] overflow-hidden">
               <iframe
                 src={externalLinks.maps.embedUrl}

@@ -18,12 +18,12 @@ export default function Hero() {
       </div>
 
       {/* Save the date! - Positioned per Figma: top-161px on mobile */}
-      <p className="absolute left-4 md:left-[84px] lg:left-[127px] top-[161px] md:top-[381px] lg:top-[345px] z-10 font-['Lato'] font-medium text-brand-linen text-[40px] tracking-[1.6px] leading-normal">
+      <p className="absolute left-4 md:left-[84px] lg:left-[127px] top-[161px] md:top-[381px] lg:top-[345px] z-10 font-['Lato'] font-medium text-brand-linen text-[40px] tracking-[1.6px] leading-normal animate-[fadeSlideUp_0.8s_ease_0.3s_both]">
         Save the date!
       </p>
 
       {/* Names and Date - Positioned at bottom per Figma: top-479px on mobile */}
-      <div className="absolute left-4 md:left-[67px] lg:left-[111px] top-[420px] md:top-[459px] lg:top-[432px] z-10">
+      <div className="absolute left-4 md:left-[67px] lg:left-[111px] top-[420px] md:top-[459px] lg:top-[432px] z-10 animate-[fadeSlideUp_0.8s_ease_0.7s_both]">
         <p className="font-['Dancing_Script'] font-bold text-brand-linen text-[48px] lg:text-[60px] leading-[1.2] tracking-[1.2px]">
           Mariana & Martín
         </p>
