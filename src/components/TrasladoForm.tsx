@@ -227,9 +227,6 @@ export default function TrasladoForm() {
             {/* Dropdown for Montevideo/Costa de Oro */}
             {showDropdown && (
               <div className="flex flex-col gap-2">
-                <label className="font-semibold text-[14px] text-brand-darkGreen">
-                  {zona === "Montevideo" ? "Barrio" : "Ciudad"}
-                </label>
                 <select
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
