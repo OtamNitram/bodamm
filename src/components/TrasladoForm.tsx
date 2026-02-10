@@ -230,7 +230,10 @@ export default function TrasladoForm() {
                 <select
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
-                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="bg-[#FFFCF8] border border-[rgba(10,52,40,0.2)] rounded-[8px] px-2 py-2 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors appearance-none bg-[length:14px] bg-[right_12px_center] bg-no-repeat"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath fill='rgba(10,52,40,0.8)' d='M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-23.1 6.9-35.1s-16.6-19.8-29.6-19.8H32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.9 6.9 35.1l128 128z'/%3E%3C/svg%3E")`,
+                  }}
                 >
                   <option value="">Seleccioná tu punto de partida</option>
                   {options.map((opt) => (
@@ -250,35 +253,29 @@ export default function TrasladoForm() {
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
                   placeholder="Seleccioná tu punto de partida"
-                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="w-full bg-[#FFFCF8] border border-[rgba(10,52,40,0.2)] rounded-[8px] px-2 py-2 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/60 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 />
               </div>
             )}
 
             {/* WhatsApp + Full name — side by side per Figma */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="flex-1 flex flex-col gap-2">
-                <label className="font-semibold text-[14px] text-brand-darkGreen">
-                  WhatsApp
-                </label>
+              <div className="flex-1">
                 <input
                   type="tel"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
                   placeholder="WhatsApp"
-                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="w-full bg-[#FFFCF8] border border-[rgba(10,52,40,0.2)] rounded-[8px] px-2 py-2 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/60 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 />
               </div>
-              <div className="flex-1 flex flex-col gap-2">
-                <label className="font-semibold text-[14px] text-brand-darkGreen">
-                  Nombre Completo
-                </label>
+              <div className="flex-1">
                 <input
                   type="text"
                   value={nombreCompleto}
                   onChange={(e) => setNombreCompleto(e.target.value)}
                   placeholder="Nombre Completo"
-                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="w-full bg-[#FFFCF8] border border-[rgba(10,52,40,0.2)] rounded-[8px] px-2 py-2 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/60 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 />
               </div>
             </div>
