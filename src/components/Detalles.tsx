@@ -1,5 +1,4 @@
 import { externalLinks } from "../config/links";
-import patternRight from "../assets/images/pattern-right.webp";
 import iconCalendar from "../assets/images/icon-calendar.svg";
 import iconLocation from "../assets/images/icon-location.svg";
 import iconDresscode from "../assets/images/icon-dresscode.svg";
@@ -10,15 +9,6 @@ export default function Detalles() {
       id="detalles"
       className="relative py-14 md:py-24 bg-brand-linen overflow-hidden"
     >
-      {/* Decorative Pattern - Only visible on larger screens */}
-      <div className="hidden lg:block absolute right-0 top-[-529px] w-[736px] h-[1026px] opacity-20">
-        <img
-          src={patternRight.src}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
           Los detalles del Evento
