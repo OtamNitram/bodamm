@@ -82,9 +82,11 @@ export default function Fotos() {
           <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center leading-normal tracking-[0.02em]">
             Fotos
           </h2>
-          <p className="text-[16px] lg:text-[18px] text-brand-navy text-center max-w-[600px]">
-            Después de la fiesta vas a poder subir tus fotos acá. ¡Esperá hasta
-            abril!
+          <p className="text-[24px] lg:text-[28px] font-semibold text-brand-navy text-center max-w-[800px]">
+            Vas a tener que esperar hasta abril para ver esta sección
+          </p>
+          <p className="text-[18px] lg:text-[20px] text-brand-navy text-center max-w-[800px]">
+            Martín dice que sino se va a llenar de bots 👀
           </p>
         </div>
       </div>
