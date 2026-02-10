@@ -230,7 +230,7 @@ export default function TrasladoForm() {
                 <select
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
-                  className="bg-white border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                  className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 >
                   <option value="">Seleccioná tu punto de partida</option>
                   {options.map((opt) => (
@@ -245,14 +245,11 @@ export default function TrasladoForm() {
             {/* Free text for Otro */}
             {showFreeText && (
               <div className="flex flex-col gap-2">
-                <label className="font-semibold text-[14px] text-brand-darkGreen">
-                  ¿De dónde salís?
-                </label>
                 <input
                   type="text"
                   value={puntoDePartida}
                   onChange={(e) => setPuntoDePartida(e.target.value)}
-                  placeholder="Ej: Pando, Las Piedras..."
+                  placeholder="Seleccioná tu punto de partida"
                   className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
                 />
               </div>
