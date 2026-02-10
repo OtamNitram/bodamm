@@ -59,11 +59,12 @@ export default function Nav() {
 
   const navItems = [
     { label: "Detalles", href: "#detalles" },
+    { label: "Asistencia", href: "#asistencia" },
+    { label: "Traslado", href: "#traslado" },
     { label: "Gift List", href: "#gift-list" },
     { label: "Temaikenes", href: "#temaikenes" },
-    { label: "Fotos", href: "#fotos", hidden: true },
-    { label: "Asistencia", href: "#asistencia" },
-  ].filter((item) => !item.hidden);
+    { label: "Fotos", href: "#fotos" },
+  ];
 
   return (
     <nav

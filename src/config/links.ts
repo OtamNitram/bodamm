@@ -21,6 +21,10 @@ export interface ExternalLinks {
     apiSearchUrl: string;
     apiSubmitUrl: string;
   };
+  traslado: {
+    pageUrl: string;
+    apiSubmitUrl: string;
+  };
 }
 
 export const externalLinks: ExternalLinks = {
@@ -46,5 +50,9 @@ export const externalLinks: ExternalLinks = {
     pageUrl: "/#asistencia",
     apiSearchUrl: "/.netlify/functions/rsvp-search",
     apiSubmitUrl: "/.netlify/functions/rsvp-submit",
+  },
+  traslado: {
+    pageUrl: "/#traslado",
+    apiSubmitUrl: "/.netlify/functions/traslado-submit",
   },
 };

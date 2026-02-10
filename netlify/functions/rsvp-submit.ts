@@ -119,6 +119,8 @@ export default async (req: Request, _context: Context) => {
   }
 
   try {
+    // Apps Script returns 302 redirect after processing POST.
+    // Use redirect: "manual" then follow the location to get JSON result.
     const response = await fetch(appsScriptUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -128,9 +130,23 @@ export default async (req: Request, _context: Context) => {
         groupId: body.groupId,
         members: body.members,
       }),
+      redirect: "manual",
     });
 
-    const data = await response.json();
+    let data;
+    if (response.status === 302) {
+      const location = response.headers.get("location");
+      if (location) {
+        const resultResponse = await fetch(location);
+        const text = await resultResponse.text();
+        data = JSON.parse(text);
+      } else {
+        data = { success: true, submittedAt: new Date().toISOString() };
+      }
+    } else {
+      const text = await response.text();
+      data = JSON.parse(text);
+    }
 
     if (data.error) {
       const status =

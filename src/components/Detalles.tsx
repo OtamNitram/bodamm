@@ -1,5 +1,4 @@
 import { externalLinks } from "../config/links";
-import patternRight from "../assets/images/pattern-right.webp";
 import iconCalendar from "../assets/images/icon-calendar.svg";
 import iconLocation from "../assets/images/icon-location.svg";
 import iconDresscode from "../assets/images/icon-dresscode.svg";
@@ -10,15 +9,6 @@ export default function Detalles() {
       id="detalles"
       className="relative py-14 md:py-24 bg-brand-linen overflow-hidden"
     >
-      {/* Decorative Pattern - Only visible on larger screens */}
-      <div className="hidden lg:block absolute right-0 top-[-529px] w-[736px] h-[1026px] opacity-20">
-        <img
-          src={patternRight.src}
-          alt=""
-          className="w-full h-full object-cover"
-        />
-      </div>
-
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-8 md:mb-10 lg:mb-12 tracking-[0.02em]">
           Los detalles del Evento
@@ -28,7 +18,7 @@ export default function Detalles() {
           {/* Details Column - Stacked on mobile/tablet, left column on desktop */}
           <div className="flex-1 space-y-6">
             {/* Cuándo */}
-            <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconCalendar.src} alt="" className="w-full h-full" />
               </div>
@@ -49,7 +39,7 @@ export default function Detalles() {
             </div>
 
             {/* Dónde */}
-            <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[49.26px] md:w-20 md:h-[65.68px] flex-shrink-0">
                 <img src={iconLocation.src} alt="" className="w-full h-full" />
               </div>
@@ -70,7 +60,7 @@ export default function Detalles() {
             </div>
 
             {/* Dress Code */}
-            <div className="bg-[rgba(198,87,42,0.03)] border border-[rgba(198,87,42,0.5)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
+            <div className="bg-[rgba(255,255,255,0.2)] border border-[rgba(10,52,40,0.2)] rounded-[20px] p-4 flex gap-4 md:gap-6 items-center h-[185px]">
               <div className="w-[60px] h-[60px] md:w-20 md:h-20 flex-shrink-0">
                 <img src={iconDresscode.src} alt="" className="w-full h-full" />
               </div>

@@ -5,13 +5,17 @@ const SHOW_FOTOS = false;
 
 export default function Fotos() {
   return (
-    <section id="temaikenes" className="relative pt-24">
+    <section className="relative pt-24">
       <div className="container mx-auto px-4 md:px-12 relative z-10">
-        <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center mb-12 leading-normal tracking-[0.02em]">
-          {SHOW_FOTOS ? "Fotos & Temaikenes" : "Temaikenes"}
-        </h2>
+        {/* Temaikenes */}
+        <div
+          id="temaikenes"
+          className="flex flex-col items-center gap-12 mb-24"
+        >
+          <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center leading-normal tracking-[0.02em]">
+            Temaikenes
+          </h2>
 
-        <div className="flex flex-col gap-12 w-full">
           {/* Spotify Section */}
           <div className="text-center w-full">
             <h3 className="text-[24px] lg:text-[28px] font-semibold text-brand-navy mb-4">
@@ -42,7 +46,7 @@ export default function Fotos() {
 
           {/* Photos Section - hidden until after the wedding */}
           {SHOW_FOTOS && (
-            <div id="fotos" className="text-center w-full">
+            <div className="text-center w-full">
               <h3 className="text-[24px] lg:text-[28px] font-semibold text-brand-navy mb-4">
                 ¿Sacaste fotos?
               </h3>
@@ -71,6 +75,19 @@ export default function Fotos() {
               </p>
             </div>
           )}
+        </div>
+
+        {/* Fotos - always visible placeholder with anchor */}
+        <div id="fotos" className="flex flex-col items-center gap-4 pb-24">
+          <h2 className="font-['Dancing_Script'] font-bold text-[36px] lg:text-[56px] text-brand-navy text-center leading-normal tracking-[0.02em]">
+            Fotos
+          </h2>
+          <p className="text-[24px] lg:text-[28px] font-semibold text-brand-navy text-center max-w-[800px]">
+            Vas a tener que esperar hasta abril para ver esta sección
+          </p>
+          <p className="text-[18px] lg:text-[20px] text-brand-navy text-center max-w-[800px]">
+            Martín dice que sino se va a llenar de bots 👀
+          </p>
         </div>
       </div>
     </section>
