@@ -1,4 +1,5 @@
 import type { Guest } from "../lib/rsvp-types";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 interface RsvpConfirmModalProps {
   members: Guest[];
@@ -17,6 +18,8 @@ export default function RsvpConfirmModal({
   onConfirm,
   onCancel,
 }: RsvpConfirmModalProps) {
+  useScrollLock();
+
   const attendingMembers = members.filter((m) => attendingMap[m.id]);
   const notAttendingMembers = members.filter((m) => !attendingMap[m.id]);
 
@@ -82,14 +85,14 @@ export default function RsvpConfirmModal({
           <button
             type="button"
             onClick={onConfirm}
-            className="flex-1 inline-flex items-center justify-center px-4 py-3 min-h-[44px] rounded-xl font-semibold text-[16px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
+            className="flex-1 inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
           >
             Confirmar
           </button>
           <button
             type="button"
             onClick={onCancel}
-            className="flex-1 inline-flex items-center justify-center px-4 py-3 min-h-[44px] rounded-xl font-semibold text-[16px] border-2 border-brand-darkGreen/30 text-brand-darkGreen hover:bg-brand-darkGreen/5 transition-colors duration-200"
+            className="flex-1 inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen/30 text-brand-darkGreen hover:bg-brand-darkGreen/5 transition-colors duration-200"
           >
             Volver
           </button>

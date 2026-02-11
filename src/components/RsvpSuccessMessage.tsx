@@ -38,7 +38,7 @@ export default function RsvpSuccessMessage({
       <button
         type="button"
         onClick={downloadICS}
-        className="inline-flex items-center justify-center gap-2 px-6 py-3 min-h-[44px] rounded-xl font-semibold text-[16px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
+        className="inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +63,7 @@ export default function RsvpSuccessMessage({
       <button
         type="button"
         onClick={onReset}
-        className="inline-flex items-center justify-center px-6 py-2 min-h-[40px] rounded-xl font-semibold text-[14px] border-2 border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen hover:text-brand-linen transition-colors duration-200"
+        className="inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200"
       >
         Modificar confirmación
       </button>

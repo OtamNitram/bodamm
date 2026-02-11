@@ -105,11 +105,11 @@ export default function GiftList() {
                 </p>
                 <p className="text-[14px] lg:text-[18px]">
                   <span className="font-bold">Bco. Santander (UYU):</span>{" "}
-                  123343456
+                  0062001200748170
                 </p>
                 <p className="text-[14px] lg:text-[18px]">
                   <span className="font-bold">Bco. Santander (USD):</span>{" "}
-                  123343456
+                  0062005200888865
                 </p>
               </div>
             </div>

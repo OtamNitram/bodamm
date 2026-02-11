@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { useScrollLock } from "../hooks/useScrollLock";
 import type {
   Group,
   Guest,
@@ -228,7 +229,7 @@ export default function RsvpForm() {
             disabled={
               formState === "searching" || !firstName.trim() || !lastName.trim()
             }
-            className="w-full sm:w-auto self-center inline-flex items-center justify-center gap-2 px-8 py-3 min-h-[48px] rounded-xl font-semibold text-[16px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto self-center inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {formState === "searching" ? (
               <>
@@ -438,7 +439,7 @@ export default function RsvpForm() {
               type="button"
               onClick={handleShowConfirmation}
               disabled={formState === "submitting"}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] rounded-xl font-semibold text-[16px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Enviar confirmación
             </button>
@@ -459,16 +460,22 @@ export default function RsvpForm() {
       )}
 
       {/* Submitting overlay */}
-      {formState === "submitting" && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
-          <div className="bg-brand-linen rounded-xl px-8 py-6 flex flex-col items-center gap-4 shadow-xl">
-            <span className="animate-spin inline-block w-8 h-8 border-4 border-brand-eucalyptus/30 border-t-brand-eucalyptus rounded-full" />
-            <p className="text-[16px] font-semibold text-brand-navy">
-              Enviando confirmación...
-            </p>
-          </div>
-        </div>
-      )}
+      {formState === "submitting" && <SubmittingOverlay />}
+    </div>
+  );
+}
+
+function SubmittingOverlay() {
+  useScrollLock();
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">
+      <div className="bg-brand-linen rounded-xl px-8 py-6 flex flex-col items-center gap-4 shadow-xl">
+        <span className="animate-spin inline-block w-8 h-8 border-4 border-brand-eucalyptus/30 border-t-brand-eucalyptus rounded-full" />
+        <p className="text-[16px] font-semibold text-brand-navy">
+          Enviando confirmación...
+        </p>
+      </div>
     </div>
   );
 }

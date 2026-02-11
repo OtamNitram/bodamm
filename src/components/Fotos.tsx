@@ -34,13 +34,13 @@ export default function Fotos() {
               href={externalLinks.spotify.playlistUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-darkGreen text-brand-linen px-4 py-2 rounded-xl text-[14px] font-semibold hover:bg-brand-eucalyptus transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-[257px] min-h-[40px] px-4 py-2 rounded-[12px] text-[14px] font-semibold bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
             >
               <span>Ir a Spotify</span>
               <img
                 src={spotifyIcon.src}
                 alt="Spotify"
-                className="w-4 h-4 text-[#1bd75f]"
+                className="w-4 h-4"
                 style={{
                   filter:
                     "invert(67%) sepia(89%) saturate(401%) hue-rotate(88deg) brightness(97%) contrast(91%)",

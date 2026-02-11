@@ -68,14 +68,14 @@ export default function RsvpPopup() {
           <button
             type="button"
             onClick={accept}
-            className="flex-1 inline-flex items-center justify-center px-4 py-2.5 min-h-[40px] rounded-xl font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
+            className="flex-1 inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200"
           >
             Sí, llevame
           </button>
           <button
             type="button"
             onClick={dismiss}
-            className="flex-1 inline-flex items-center justify-center px-4 py-2.5 min-h-[40px] rounded-xl font-semibold text-[14px] border-2 border-brand-darkGreen/30 text-brand-darkGreen hover:bg-brand-darkGreen/5 transition-colors duration-200"
+            className="flex-1 inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen/30 text-brand-darkGreen hover:bg-brand-darkGreen/5 transition-colors duration-200"
           >
             No, gracias
           </button>

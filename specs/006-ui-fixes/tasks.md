@@ -19,7 +19,7 @@
 
 **Purpose**: Create the one new shared utility needed across multiple stories
 
-- [ ] T001 Create `useScrollLock` hook in `src/hooks/useScrollLock.ts` — a React hook that sets `document.body.style.overflow = 'hidden'` on mount and restores on unmount. Must handle iOS Safari scroll-through bug (add `position: fixed` + `top` offset trick). Return cleanup function. ~20 lines.
+- [x] T001 Create `useScrollLock` hook in `src/hooks/useScrollLock.ts` — a React hook that sets `document.body.style.overflow = 'hidden'` on mount and restores on unmount. Must handle iOS Safari scroll-through bug (add `position: fixed` + `top` offset trick). Return cleanup function. ~20 lines.
 
 **Checkpoint**: Scroll lock hook ready for use in RSVP modal and submitting overlay.
 
@@ -41,8 +41,8 @@
 
 ### Implementation for User Story 1
 
-- [ ] T002 [US1] Import and activate `useScrollLock` in `src/components/RsvpConfirmModal.tsx` — call the hook at the top of the component so scroll locks when modal mounts and unlocks on unmount. Ensure modal inner content (`max-h-[90vh] overflow-y-auto`) remains scrollable.
-- [ ] T003 [US1] Add scroll lock to submitting overlay in `src/components/RsvpForm.tsx` — use `useScrollLock` conditionally when `formState === "submitting"`. Since hooks can't be called conditionally, either extract the overlay into a small sub-component that mounts/unmounts, or use `useEffect` with the formState dependency to toggle scroll lock.
+- [x] T002 [US1] Import and activate `useScrollLock` in `src/components/RsvpConfirmModal.tsx` — call the hook at the top of the component so scroll locks when modal mounts and unlocks on unmount. Ensure modal inner content (`max-h-[90vh] overflow-y-auto`) remains scrollable.
+- [x] T003 [US1] Add scroll lock to submitting overlay in `src/components/RsvpForm.tsx` — use `useScrollLock` conditionally when `formState === "submitting"`. Since hooks can't be called conditionally, either extract the overlay into a small sub-component that mounts/unmounts, or use `useEffect` with the formState dependency to toggle scroll lock.
 
 **Checkpoint**: RSVP confirmation modal and submitting overlay both lock background scroll. Modal inner content still scrolls when overflowing.
 
@@ -56,9 +56,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T004 [US2] Update "Agregar al calendario" button in `src/components/RsvpSuccessMessage.tsx` — change classes from current `px-6 py-3 min-h-[44px] text-[16px]` to Figma v2 spec: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200`. Keep calendar icon SVG and `gap-2`.
-- [ ] T005 [US2] Update "Modificar confirmación" button in `src/components/RsvpSuccessMessage.tsx` — change classes from current `px-6 py-2 min-h-[40px] text-[14px] border-2 border-brand-darkGreen` to Figma v2 Outlined spec: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200`. Remove `border-2`, use `border`.
-- [ ] T006 [US2] Verify and update heading copy in `src/components/RsvpSuccessMessage.tsx` — compare current "¡Confirmación recibida!" against Figma v2 design. Update text, font-size, and styling if they differ from Figma.
+- [x] T004 [US2] Update "Agregar al calendario" button in `src/components/RsvpSuccessMessage.tsx` — change classes from current `px-6 py-3 min-h-[44px] text-[16px]` to Figma v2 spec: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200`. Keep calendar icon SVG and `gap-2`.
+- [x] T005 [US2] Update "Modificar confirmación" button in `src/components/RsvpSuccessMessage.tsx` — change classes from current `px-6 py-2 min-h-[40px] text-[14px] border-2 border-brand-darkGreen` to Figma v2 Outlined spec: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200`. Remove `border-2`, use `border`.
+- [x] T006 [US2] Verify and update heading copy in `src/components/RsvpSuccessMessage.tsx` — compare current "¡Confirmación recibida!" against Figma v2 design. Update text, font-size, and styling if they differ from Figma.
 
 **Checkpoint**: Both buttons on success screen are identically sized and match Figma v2 button variants. Heading copy matches design.
 
@@ -72,8 +72,8 @@
 
 ### Implementation for User Story 3
 
-- [ ] T007 [P] [US3] Update Spotify button in `src/components/Fotos.tsx` — change the `<a>` tag classes from current `px-4 py-2 rounded-xl text-[14px] font-semibold` to exact Figma v2 spec: `min-h-[40px] px-4 py-2 rounded-[12px] text-[14px] font-semibold bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200`. Add `inline-flex items-center justify-center` if not present.
-- [ ] T008 [P] [US3] Update Spotify icon size in `src/components/Fotos.tsx` — change icon from `w-4 h-4` to `w-4 h-4` (16px, verify current size). Ensure the Spotify green (#1BD75F) color is applied correctly. Remove the CSS `filter` hack if SVG already has correct colors; otherwise keep filter but verify output matches #1BD75F.
+- [x] T007 [P] [US3] Update Spotify button in `src/components/Fotos.tsx` — change the `<a>` tag classes from current `px-4 py-2 rounded-xl text-[14px] font-semibold` to exact Figma v2 spec: `min-h-[40px] px-4 py-2 rounded-[12px] text-[14px] font-semibold bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200`. Add `inline-flex items-center justify-center` if not present.
+- [x] T008 [P] [US3] Update Spotify icon size in `src/components/Fotos.tsx` — change icon from `w-4 h-4` to `w-4 h-4` (16px, verify current size). Ensure the Spotify green (#1BD75F) color is applied correctly. Remove the CSS `filter` hack if SVG already has correct colors; otherwise keep filter but verify output matches #1BD75F.
 
 **Checkpoint**: Spotify button visually matches all other buttons on the site in size and proportions.
 
@@ -87,7 +87,7 @@
 
 ### Implementation for User Story 4
 
-- [ ] T009 [P] [US4] Verify MIME type in `src/lib/calendar.ts` — confirm the Blob is created with `type: "text/calendar;charset=utf-8"` (it already is). Verify the `a.download` attribute is set (it is). No code change expected — mark as verified. If the download attribute prevents mobile calendar app opening, consider removing it and using `window.open(url)` instead.
+- [x] T009 [P] [US4] Verify MIME type in `src/lib/calendar.ts` — confirm the Blob is created with `type: "text/calendar;charset=utf-8"` (it already is). Verify the `a.download` attribute is set (it is). No code change expected — mark as verified. If the download attribute prevents mobile calendar app opening, consider removing it and using `window.open(url)` instead.
 
 **Checkpoint**: .ics download works on desktop; on mobile, calendar app opens with correct event data (April 25, 2026, 20:30, Bodega Spinoglio).
 
@@ -101,9 +101,9 @@
 
 ### Implementation for User Story 5
 
-- [ ] T010 [US5] Remove auto-dismiss timer in `src/components/TrasladoForm.tsx` — delete the `setTimeout(() => { resetForm(); }, 5000)` block (around line 87-89 in the success handler). Keep `setStatus("success")` but remove the timeout.
-- [ ] T011 [US5] Redesign transport success view in `src/components/TrasladoForm.tsx` — replace the current inline success `<div>` (lines ~180-187) with a styled success screen matching RSVP pattern: card container with `bg-white/20 border border-brand-darkGreen/20 rounded-xl` styling, checkmark icon in eucalyptus circle (copy SVG pattern from RsvpSuccessMessage), Dancing Script heading "¡Datos guardados!", body text "Nos pondremos en contacto para coordinar el traslado.", and a "Enviar otros datos" outlined button that calls `resetForm()`.
-- [ ] T012 [US5] Ensure "Enviar otros datos" button in `src/components/TrasladoForm.tsx` uses Figma v2 Outlined button variant: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200`.
+- [x] T010 [US5] Remove auto-dismiss timer in `src/components/TrasladoForm.tsx` — delete the `setTimeout(() => { resetForm(); }, 5000)` block (around line 87-89 in the success handler). Keep `setStatus("success")` but remove the timeout.
+- [x] T011 [US5] Redesign transport success view in `src/components/TrasladoForm.tsx` — replace the current inline success `<div>` (lines ~180-187) with a styled success screen matching RSVP pattern: card container with `bg-white/20 border border-brand-darkGreen/20 rounded-xl` styling, checkmark icon in eucalyptus circle (copy SVG pattern from RsvpSuccessMessage), Dancing Script heading "¡Datos guardados!", body text "Nos pondremos en contacto para coordinar el traslado.", and a "Enviar otros datos" outlined button that calls `resetForm()`.
+- [x] T012 [US5] Ensure "Enviar otros datos" button in `src/components/TrasladoForm.tsx` uses Figma v2 Outlined button variant: `px-4 py-2 min-h-[40px] rounded-[12px] text-[14px] font-semibold border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200`.
 
 **Checkpoint**: Transport success screen persists until user clicks "Enviar otros datos". Visual style matches RSVP success screen.
 
@@ -117,7 +117,7 @@
 
 ### Implementation for User Story 6
 
-- [ ] T013 [P] [US6] Update bank account numbers in `src/components/GiftList.tsx` — change UYU account from `123343456` to `0062001200748170` (around line 108) and USD account from `123343456` to `0062005200888865` (around line 111). Keep "Bco. Santander" as the bank name for both.
+- [x] T013 [P] [US6] Update bank account numbers in `src/components/GiftList.tsx` — change UYU account from `123343456` to `0062001200748170` (around line 108) and USD account from `123343456` to `0062005200888865` (around line 111). Keep "Bco. Santander" as the bank name for both.
 
 **Checkpoint**: Bank accounts display correctly: UYU `0062001200748170`, USD `0062005200888865`.
 
@@ -131,10 +131,10 @@
 
 ### Implementation for User Story 7
 
-- [ ] T014 [US7] Visual audit at 375px (Mobile) — compare each section against Figma Home Mobile frame (node 11:1017). Document any deviations in component files. Focus on sections affected by other fixes in this batch: Temaikenes/Spotify, Asistencia, Traslado, Gift List.
-- [ ] T015 [US7] Visual audit at 800px (Tablet) — compare each section against Figma Home Tablet frame (node 11:1176). Document and fix deviations. Check that Traslado form, zone chips, and Gift List render correctly at this breakpoint.
-- [ ] T016 [US7] Visual audit at 1200px (Desktop/Web) — compare each section against Figma Home Web frame (node 10:197). Document and fix deviations. Verify button sizes, spacing, and typography at desktop width.
-- [ ] T017 [US7] Fix any breakpoint deviations found in T014-T016 — apply CSS/Tailwind corrections to affected component files. Each fix should reference the specific Figma node and breakpoint.
+- [x] T014 [US7] Visual audit at 375px (Mobile) — compare each section against Figma Home Mobile frame (node 11:1017). Document any deviations in component files. Focus on sections affected by other fixes in this batch: Temaikenes/Spotify, Asistencia, Traslado, Gift List.
+- [x] T015 [US7] Visual audit at 800px (Tablet) — compare each section against Figma Home Tablet frame (node 11:1176). Document and fix deviations. Check that Traslado form, zone chips, and Gift List render correctly at this breakpoint.
+- [x] T016 [US7] Visual audit at 1200px (Desktop/Web) — compare each section against Figma Home Web frame (node 10:197). Document and fix deviations. Verify button sizes, spacing, and typography at desktop width.
+- [x] T017 [US7] Fix any breakpoint deviations found in T014-T016 — apply CSS/Tailwind corrections to affected component files. Each fix should reference the specific Figma node and breakpoint.
 
 **Checkpoint**: Site passes visual comparison at all three Figma breakpoints with no layout breaks between 320px–1440px.
 
@@ -148,8 +148,8 @@
 
 ### Implementation for User Story 8
 
-- [ ] T018 [US8] Refactor zone chip layout in `src/components/TrasladoForm.tsx` — change the chip container from `flex flex-wrap gap-3` to `flex gap-[1px]` (or `gap-0` with a 1px border separator). Update individual chip classes: remove `rounded-full` from all chips. Add `rounded-l-full` to first chip ("Montevideo"), no rounding on middle chip ("Costa de Oro"), `rounded-r-full` to last chip ("Otro"). Ensure min-h of 44px for touch targets. Chips should stretch equally to fill available width on mobile.
-- [ ] T019 [US8] Verify zone chip styling on desktop in `src/components/TrasladoForm.tsx` — ensure the segmented control still looks appropriate at tablet/desktop widths. Chips should not stretch to full container width on desktop; use `w-auto` or max-width constraint so the segmented control remains compact.
+- [x] T018 [US8] Refactor zone chip layout in `src/components/TrasladoForm.tsx` — change the chip container from `flex flex-wrap gap-3` to `flex gap-[1px]` (or `gap-0` with a 1px border separator). Update individual chip classes: remove `rounded-full` from all chips. Add `rounded-l-full` to first chip ("Montevideo"), no rounding on middle chip ("Costa de Oro"), `rounded-r-full` to last chip ("Otro"). Ensure min-h of 44px for touch targets. Chips should stretch equally to fill available width on mobile.
+- [x] T019 [US8] Verify zone chip styling on desktop in `src/components/TrasladoForm.tsx` — ensure the segmented control still looks appropriate at tablet/desktop widths. Chips should not stretch to full container width on desktop; use `w-auto` or max-width constraint so the segmented control remains compact.
 
 **Checkpoint**: Zone chips display as flush segmented control on mobile (375px). Tappable with 44px min touch targets. Looks appropriate at all breakpoints.
 
@@ -159,10 +159,10 @@
 
 **Purpose**: Final verification across all stories
 
-- [ ] T020 Run full manual verification checklist from `specs/006-ui-fixes/quickstart.md` — test all 8 areas sequentially on mobile (375px) and desktop (1200px)
-- [ ] T021 Verify no TypeScript errors — run `npx astro check` and fix any type issues introduced by changes
-- [ ] T022 Verify Lighthouse score ≥ 90 — run Lighthouse audit on the deployed preview or local build to ensure no performance regression from changes
-- [ ] T023 Verify no raw hex colors in modified components — grep all modified files for hex color literals that should use brand tokens instead
+- [x] T020 Run full manual verification checklist from `specs/006-ui-fixes/quickstart.md` — test all 8 areas sequentially on mobile (375px) and desktop (1200px)
+- [x] T021 Verify no TypeScript errors — run `npx astro check` and fix any type issues introduced by changes
+- [x] T022 Verify Lighthouse score ≥ 90 — run Lighthouse audit on the deployed preview or local build to ensure no performance regression from changes
+- [x] T023 Verify no raw hex colors in modified components — grep all modified files for hex color literals that should use brand tokens instead
 
 ---
 

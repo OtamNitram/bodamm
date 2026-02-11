@@ -9,7 +9,6 @@ import type {
   TrasladoApiError,
   TrasladoFormStatus,
 } from "../lib/traslado-types";
-import Button from "./Button";
 import trasladoBg from "../assets/images/traslado-bg.webp";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -84,9 +83,6 @@ export default function TrasladoForm() {
       }
 
       setStatus("success");
-      setTimeout(() => {
-        resetForm();
-      }, 5000);
     } catch {
       setStatus("error");
       setErrorMessage(
@@ -178,11 +174,40 @@ export default function TrasladoForm() {
 
         {/* Success message */}
         {status === "success" && (
-          <div className="bg-brand-eucalyptus/20 border border-brand-eucalyptus rounded-xl px-6 py-4 text-brand-darkGreen text-center max-w-[600px]">
-            <p className="font-semibold text-[18px]">¡Datos guardados!</p>
-            <p className="text-[14px] mt-1">
+          <div className="bg-white/20 border border-brand-darkGreen/20 rounded-xl max-w-[800px] w-full px-6 md:px-8 py-8 flex flex-col items-center gap-6 text-center">
+            <div className="w-16 h-16 rounded-full bg-brand-eucalyptus/10 flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-brand-eucalyptus"
+                aria-hidden="true"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+
+            <h3 className="font-['Dancing_Script'] font-bold text-[28px] lg:text-[36px] text-brand-navy">
+              ¡Datos guardados!
+            </h3>
+
+            <p className="text-[16px] lg:text-[18px] text-brand-darkGreen/80 max-w-[400px]">
               Nos pondremos en contacto para coordinar el traslado.
             </p>
+
+            <button
+              type="button"
+              onClick={resetForm}
+              className="inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen hover:bg-brand-darkGreen/10 transition-colors duration-200"
+            >
+              Enviar otros datos
+            </button>
           </div>
         )}
 
@@ -210,7 +235,7 @@ export default function TrasladoForm() {
               <label className="font-semibold text-[16px] text-brand-darkGreen">
                 ¿De qué zona salís?
               </label>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-nowrap gap-2">
                 {ZONES.map((z) => (
                   <button
                     key={z}
@@ -219,7 +244,7 @@ export default function TrasladoForm() {
                       setZona(z);
                       setPuntoDePartida("");
                     }}
-                    className={`px-4 py-2 rounded-full text-[14px] font-semibold transition-colors border ${
+                    className={`px-4 py-2 min-h-[44px] rounded-full text-[14px] font-semibold transition-colors border ${
                       zona === z
                         ? "bg-brand-darkGreen text-brand-linen border-brand-darkGreen"
                         : "bg-brand-linen text-brand-darkGreen border-brand-darkGreen/30 hover:border-brand-darkGreen"
@@ -316,7 +341,7 @@ export default function TrasladoForm() {
             <button
               type="submit"
               disabled={!canSubmit}
-              className="self-center inline-flex items-center justify-center gap-2 px-8 py-3 min-h-[48px] rounded-xl font-semibold text-[16px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="self-center inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === "submitting" ? "Enviando..." : "Enviar Datos"}
             </button>
