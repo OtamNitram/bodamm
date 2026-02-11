@@ -34,6 +34,9 @@ export default function RsvpForm() {
 
   // Per-member state
   const [attendingMap, setAttendingMap] = useState<Record<string, boolean>>({});
+  const [lockedAttendingMap, setLockedAttendingMap] = useState<
+    Record<string, boolean>
+  >({});
   const [dietaryToggleMap, setDietaryToggleMap] = useState<
     Record<string, boolean>
   >({});
@@ -55,7 +58,14 @@ export default function RsvpForm() {
       dietText[m.id] = m.dietaryDescription || "";
     }
 
+    // Lock members that already confirmed (attending === true from API)
+    const locked: Record<string, boolean> = {};
+    for (const m of members) {
+      locked[m.id] = m.attending === true;
+    }
+
     setAttendingMap(attending);
+    setLockedAttendingMap(locked);
     setDietaryToggleMap(dietToggle);
     setDietaryTextMap(dietText);
   }, []);
@@ -174,6 +184,11 @@ export default function RsvpForm() {
       const data: SubmitResponse = await response.json();
       setSubmittedAt(data.submittedAt);
       setFormState("success");
+      setTimeout(() => {
+        document
+          .getElementById("asistencia")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     } catch {
       setFormState("found");
       setErrorMessage(
@@ -189,265 +204,274 @@ export default function RsvpForm() {
     setGroup(null);
     setErrorMessage("");
     setAttendingMap({});
+    setLockedAttendingMap({});
     setDietaryToggleMap({});
     setDietaryTextMap({});
     setSubmittedAt(null);
   };
 
-  // Success view
-  if (formState === "success") {
-    return <RsvpSuccessMessage onReset={handleReset} />;
-  }
-
   return (
-    <div className="bg-white/20 border border-brand-darkGreen/20 rounded-xl max-w-[800px] w-full px-4 md:px-8 py-6 flex flex-col gap-8 md:gap-12">
-      {/* Search Bar */}
-      <div className="flex flex-col gap-4">
-        <form onSubmit={handleSearch} className="flex flex-col gap-3">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="text"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              placeholder="Tu nombre"
-              autoComplete="off"
-              aria-label="Nombre"
-              className="flex-1 bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
-            />
-            <input
-              type="text"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              placeholder="Tu apellido"
-              autoComplete="off"
-              aria-label="Apellido"
-              className="flex-1 bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={
-              formState === "searching" || !firstName.trim() || !lastName.trim()
-            }
-            className="w-full sm:w-auto self-center inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {formState === "searching" ? (
-              <>
-                <span className="animate-spin inline-block w-4 h-4 border-2 border-brand-linen/30 border-t-brand-linen rounded-full" />
-                Buscando...
-              </>
-            ) : (
-              <>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                Buscar
-              </>
-            )}
-          </button>
-        </form>
-      </div>
-
-      {/* Error Message */}
-      {errorMessage && (
-        <div className="bg-brand-terracotta/10 border border-brand-terracotta/30 rounded-lg px-4 py-3 text-[15px] text-brand-terracotta text-center">
-          {errorMessage}
-        </div>
-      )}
-
-      {/* Not Found */}
-      {formState === "notFound" && (
-        <div className="flex flex-col items-center gap-4 text-center py-4">
-          <p className="text-[18px] font-semibold text-brand-navy">
-            No encontramos tu nombre
-          </p>
-          <p className="text-[16px] text-brand-darkGreen/80">
-            Revisá que hayas escrito tu nombre y apellido correctamente. Si el
-            problema persiste, contactanos por WhatsApp.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 pt-2">
-            <Button
-              href={externalLinks.contact.martinWhatsappUrl}
-              className="min-h-[40px]"
-            >
-              WhatsApp a Martín
-            </Button>
-            <Button
-              href={externalLinks.contact.marianaWhatsappUrl}
-              className="min-h-[40px]"
-            >
-              WhatsApp a Mariana
-            </Button>
-          </div>
-        </div>
-      )}
-
-      {/* Error with WhatsApp CTA */}
-      {formState === "error" && (
-        <div className="flex flex-col items-center gap-3 text-center py-2">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button
-              href={externalLinks.contact.martinWhatsappUrl}
-              className="min-h-[40px]"
-            >
-              WhatsApp a Martín
-            </Button>
-            <Button
-              href={externalLinks.contact.marianaWhatsappUrl}
-              className="min-h-[40px]"
-            >
-              WhatsApp a Mariana
-            </Button>
-          </div>
-        </div>
-      )}
-
-      {/* Group Members */}
-      {(formState === "found" || formState === "submitting") && group && (
-        <div className="flex flex-col gap-6">
-          {/* Attendance Checkboxes */}
+    <>
+      {/* Success message (sibling pattern like TrasladoForm — no scroll jump) */}
+      {formState === "success" && <RsvpSuccessMessage onReset={handleReset} />}
+      {formState !== "success" && (
+        <div className="bg-white/20 border border-brand-darkGreen/20 rounded-xl max-w-[800px] w-full px-4 md:px-8 py-6 flex flex-col gap-8 md:gap-12">
+          {/* Search Bar */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[18px] lg:text-[20px] font-semibold text-brand-darkGreen font-lato">
-              Seleccioná quiénes vienen :)
-            </h4>
-            <div className="flex flex-col gap-5">
-              {group.members.map((member) => (
-                <div key={member.id} className="flex flex-col gap-2">
-                  {/* Attendance checkbox */}
-                  <label className="flex items-center gap-2 cursor-pointer select-none group/checkbox">
-                    <span
-                      className={`inline-flex items-center justify-center w-10 h-10 rounded transition-colors ${
-                        attendingMap[member.id]
-                          ? "text-brand-eucalyptus"
-                          : "text-brand-eucalyptus/40"
-                      }`}
+            <form onSubmit={handleSearch} className="flex flex-col gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="text"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="Tu nombre"
+                  autoComplete="off"
+                  aria-label="Nombre"
+                  className="flex-1 bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                />
+                <input
+                  type="text"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Tu apellido"
+                  autoComplete="off"
+                  aria-label="Apellido"
+                  className="flex-1 bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-3 min-h-[48px] text-[16px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={
+                  formState === "searching" ||
+                  !firstName.trim() ||
+                  !lastName.trim()
+                }
+                className="w-full sm:w-auto self-center inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {formState === "searching" ? (
+                  <>
+                    <span className="animate-spin inline-block w-4 h-4 border-2 border-brand-linen/30 border-t-brand-linen rounded-full" />
+                    Buscando...
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
                     >
-                      {attendingMap[member.id] ? (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="36"
-                          height="36"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                        </svg>
-                      ) : (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="36"
-                          height="36"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          aria-hidden="true"
-                        >
-                          <rect x="3" y="3" width="18" height="18" rx="2" />
-                        </svg>
-                      )}
-                    </span>
-                    <input
-                      type="checkbox"
-                      checked={attendingMap[member.id] || false}
-                      onChange={(e) =>
-                        setAttendingMap((prev) => ({
-                          ...prev,
-                          [member.id]: e.target.checked,
-                        }))
-                      }
-                      className="sr-only"
-                      aria-label={`${member.firstName} ${member.lastName} asiste`}
-                    />
-                    <span className="text-[16px] lg:text-[18px] text-brand-darkGreen font-lato group-hover/checkbox:text-brand-eucalyptus transition-colors">
-                      {member.firstName} {member.lastName}
-                    </span>
-                  </label>
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    Buscar
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
 
-                  {/* Dietary restriction toggle + text (only if attending) */}
-                  {attendingMap[member.id] && (
-                    <div className="ml-12 flex flex-col gap-2">
-                      <label className="flex items-center gap-3 cursor-pointer select-none">
-                        <span className="text-[14px] lg:text-[15px] text-brand-darkGreen/80 font-lato">
-                          ¿Restricción alimentaria?
-                        </span>
-                        <button
-                          type="button"
-                          role="switch"
-                          aria-checked={dietaryToggleMap[member.id] || false}
-                          aria-label={`Restricción alimentaria para ${member.firstName}`}
-                          onClick={() =>
-                            setDietaryToggleMap((prev) => ({
-                              ...prev,
-                              [member.id]: !prev[member.id],
-                            }))
-                          }
-                          className={`relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 ${
-                            dietaryToggleMap[member.id]
-                              ? "bg-brand-eucalyptus"
-                              : "bg-brand-darkGreen/20"
+          {/* Error Message */}
+          {errorMessage && (
+            <div className="bg-brand-terracotta/10 border border-brand-terracotta/30 rounded-lg px-4 py-3 text-[15px] text-brand-terracotta text-center">
+              {errorMessage}
+            </div>
+          )}
+
+          {/* Not Found */}
+          {formState === "notFound" && (
+            <div className="flex flex-col items-center gap-4 text-center py-4">
+              <p className="text-[18px] font-semibold text-brand-navy">
+                No encontramos tu nombre
+              </p>
+              <p className="text-[16px] text-brand-darkGreen/80">
+                Revisá que hayas escrito tu nombre y apellido correctamente. Si
+                el problema persiste, contactanos por WhatsApp.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <Button
+                  href={externalLinks.contact.martinWhatsappUrl}
+                  className="min-h-[40px]"
+                >
+                  WhatsApp a Martín
+                </Button>
+                <Button
+                  href={externalLinks.contact.marianaWhatsappUrl}
+                  className="min-h-[40px]"
+                >
+                  WhatsApp a Mariana
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Error with WhatsApp CTA */}
+          {formState === "error" && (
+            <div className="flex flex-col items-center gap-3 text-center py-2">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  href={externalLinks.contact.martinWhatsappUrl}
+                  className="min-h-[40px]"
+                >
+                  WhatsApp a Martín
+                </Button>
+                <Button
+                  href={externalLinks.contact.marianaWhatsappUrl}
+                  className="min-h-[40px]"
+                >
+                  WhatsApp a Mariana
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Group Members */}
+          {(formState === "found" || formState === "submitting") && group && (
+            <div className="flex flex-col gap-6">
+              {/* Attendance Checkboxes */}
+              <div className="flex flex-col gap-4">
+                <h4 className="text-[18px] lg:text-[20px] font-semibold text-brand-darkGreen font-lato">
+                  Seleccioná quiénes vienen :)
+                </h4>
+                <div className="flex flex-col gap-5">
+                  {group.members.map((member) => (
+                    <div key={member.id} className="flex flex-col gap-2">
+                      {/* Attendance checkbox */}
+                      <label
+                        className={`flex items-center gap-2 select-none ${lockedAttendingMap[member.id] ? "opacity-70 cursor-not-allowed" : "cursor-pointer group/checkbox"}`}
+                      >
+                        <span
+                          className={`inline-flex items-center justify-center w-10 h-10 rounded transition-colors ${
+                            attendingMap[member.id]
+                              ? "text-brand-eucalyptus"
+                              : "text-brand-eucalyptus/40"
                           }`}
                         >
-                          <span
-                            className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${
-                              dietaryToggleMap[member.id]
-                                ? "translate-x-5"
-                                : "translate-x-0"
-                            }`}
-                          />
-                        </button>
-                      </label>
-
-                      {dietaryToggleMap[member.id] && (
+                          {attendingMap[member.id] ? (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="36"
+                              height="36"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="36"
+                              height="36"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              aria-hidden="true"
+                            >
+                              <rect x="3" y="3" width="18" height="18" rx="2" />
+                            </svg>
+                          )}
+                        </span>
                         <input
-                          type="text"
-                          value={dietaryTextMap[member.id] || ""}
+                          type="checkbox"
+                          checked={attendingMap[member.id] || false}
+                          disabled={lockedAttendingMap[member.id]}
                           onChange={(e) =>
-                            setDietaryTextMap((prev) => ({
+                            setAttendingMap((prev) => ({
                               ...prev,
-                              [member.id]: e.target.value,
+                              [member.id]: e.target.checked,
                             }))
                           }
-                          placeholder="Ej: celíaco, vegetariano, alergia a frutos secos..."
-                          aria-label={`Descripción restricción alimentaria de ${member.firstName}`}
-                          className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-2 text-[14px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors max-w-[400px]"
+                          className="sr-only"
+                          aria-label={`${member.firstName} ${member.lastName} asiste`}
                         />
+                        <span className="text-[16px] lg:text-[18px] text-brand-darkGreen font-lato group-hover/checkbox:text-brand-eucalyptus transition-colors">
+                          {member.firstName} {member.lastName}
+                        </span>
+                      </label>
+
+                      {/* Dietary restriction toggle + text (only if attending) */}
+                      {attendingMap[member.id] && (
+                        <div className="ml-12 flex flex-col gap-2">
+                          <label className="flex items-center gap-3 cursor-pointer select-none">
+                            <span className="text-[14px] lg:text-[15px] text-brand-darkGreen/80 font-lato">
+                              ¿Restricción alimentaria?
+                            </span>
+                            <button
+                              type="button"
+                              role="switch"
+                              aria-checked={
+                                dietaryToggleMap[member.id] || false
+                              }
+                              aria-label={`Restricción alimentaria para ${member.firstName}`}
+                              onClick={() =>
+                                setDietaryToggleMap((prev) => ({
+                                  ...prev,
+                                  [member.id]: !prev[member.id],
+                                }))
+                              }
+                              className={`relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 ${
+                                dietaryToggleMap[member.id]
+                                  ? "bg-brand-eucalyptus"
+                                  : "bg-brand-darkGreen/20"
+                              }`}
+                            >
+                              <span
+                                className={`pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ${
+                                  dietaryToggleMap[member.id]
+                                    ? "translate-x-5"
+                                    : "translate-x-0"
+                                }`}
+                              />
+                            </button>
+                          </label>
+
+                          {dietaryToggleMap[member.id] && (
+                            <input
+                              type="text"
+                              value={dietaryTextMap[member.id] || ""}
+                              onChange={(e) =>
+                                setDietaryTextMap((prev) => ({
+                                  ...prev,
+                                  [member.id]: e.target.value,
+                                }))
+                              }
+                              placeholder="Ej: celíaco, vegetariano, alergia a frutos secos..."
+                              aria-label={`Descripción restricción alimentaria de ${member.firstName}`}
+                              className="bg-[#FFFCF8] border border-brand-darkGreen/20 rounded-lg px-3 py-2 text-[14px] text-brand-darkGreen placeholder:text-brand-darkGreen/40 font-lato focus:outline-none focus:ring-2 focus:ring-brand-eucalyptus/50 focus:border-brand-eucalyptus transition-colors max-w-[400px]"
+                            />
+                          )}
+                        </div>
                       )}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Submit Button */}
-          <div className="flex justify-center pt-2">
-            <button
-              type="button"
-              onClick={handleShowConfirmation}
-              disabled={formState === "submitting"}
-              className="inline-flex items-center justify-center px-4 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              Enviar confirmación
-            </button>
-          </div>
+              {/* Submit Button */}
+              <div className="flex justify-center pt-2">
+                <button
+                  type="button"
+                  onClick={handleShowConfirmation}
+                  disabled={formState === "submitting"}
+                  className="inline-flex items-center justify-center whitespace-nowrap px-6 py-2 min-h-[40px] rounded-[12px] font-semibold text-[14px] bg-brand-darkGreen text-brand-linen hover:bg-brand-eucalyptus transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Yendo no, ¡llegando!
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Confirmation Modal */}
+      {/* Fixed overlays — rendered outside form div to avoid parent constraints */}
       {formState === "confirming" && group && (
         <RsvpConfirmModal
           members={group.members}
@@ -458,10 +482,8 @@ export default function RsvpForm() {
           onCancel={() => setFormState("found")}
         />
       )}
-
-      {/* Submitting overlay */}
       {formState === "submitting" && <SubmittingOverlay />}
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import type { Context } from "@netlify/functions";
+import { normalizeForSearch } from "../../src/lib/rsvp-search";
 
 const DEADLINE = new Date("2026-03-25T23:59:59-03:00");
 
@@ -51,8 +52,8 @@ export default async (req: Request, _context: Context) => {
   try {
     const params = new URLSearchParams({
       action: "search",
-      firstName,
-      lastName,
+      firstName: normalizeForSearch(firstName),
+      lastName: normalizeForSearch(lastName),
       secret: rsvpSecret,
     });
 

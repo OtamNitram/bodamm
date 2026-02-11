@@ -36,7 +36,7 @@ export default function Asistencia() {
 
         {/* Contact section per Figma v2 */}
         <div className="flex flex-col items-center gap-4 text-center">
-          <h3 className="font-['Dancing_Script'] font-bold text-[24px] lg:text-[28px] text-brand-navy">
+          <h3 className="font-lato font-semibold text-[16px] lg:text-[18px] text-brand-navy">
             ¿Algo que nos quieras avisar?
           </h3>
           <p className="text-[16px] lg:text-[18px] text-brand-navy">
@@ -47,7 +47,7 @@ export default function Asistencia() {
               href={externalLinks.contact.martinWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-[257px] min-h-[40px] px-4 py-2 rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen bg-brand-linen hover:bg-brand-darkGreen/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-[200px] min-h-[40px] px-4 py-2 rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen bg-brand-linen hover:bg-brand-darkGreen/10 transition-colors"
             >
               WhatsApp a Martín
             </a>
@@ -55,7 +55,7 @@ export default function Asistencia() {
               href={externalLinks.contact.marianaWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-[257px] min-h-[40px] px-4 py-2 rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen bg-brand-linen hover:bg-brand-darkGreen/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 w-[200px] min-h-[40px] px-4 py-2 rounded-[12px] font-semibold text-[14px] border border-brand-darkGreen text-brand-darkGreen bg-brand-linen hover:bg-brand-darkGreen/10 transition-colors"
             >
               WhatsApp a Mariana
             </a>

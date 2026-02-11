@@ -173,9 +173,12 @@ function doPost(e) {
         var memberData = memberMap[memberId];
 
         if (memberData) {
-          sheet
-            .getRange(i + 1, 4)
-            .setValue(memberData.attending ? "TRUE" : "FALSE");
+          // Once attending is TRUE, it cannot be reverted to FALSE
+          var currentAttending = data[i][3];
+          var isCurrentlyAttending =
+            currentAttending === true || currentAttending === "TRUE";
+          var newAttending = isCurrentlyAttending || memberData.attending;
+          sheet.getRange(i + 1, 4).setValue(newAttending ? "TRUE" : "FALSE");
           sheet
             .getRange(i + 1, 5)
             .setValue(memberData.hasDietaryRestriction ? "TRUE" : "FALSE");
