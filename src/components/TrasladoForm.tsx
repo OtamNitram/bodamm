@@ -12,7 +12,7 @@ import type {
 import trasladoBg from "../assets/images/traslado-bg.webp";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
-const ZONES: ZoneCategory[] = ["Montevideo", "Costa de Oro", "Otro"];
+const ZONES: ZoneCategory[] = ["Montevideo", "Ciudad de la Costa", "Otro"];
 
 export default function TrasladoForm() {
   const deadlinePassed = isDeadlinePassed();
@@ -28,7 +28,7 @@ export default function TrasladoForm() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const options = zona ? getOptionsForZone(zona) : [];
-  const showDropdown = zona === "Montevideo" || zona === "Costa de Oro";
+  const showDropdown = zona === "Montevideo" || zona === "Ciudad de la Costa";
   const showFreeText = zona === "Otro";
 
   const canSubmit =
@@ -256,7 +256,7 @@ export default function TrasladoForm() {
               </div>
             </div>
 
-            {/* Dropdown for Montevideo/Costa de Oro */}
+            {/* Dropdown for Montevideo/Ciudad de la Costa */}
             {showDropdown && (
               <div className="flex flex-col gap-2">
                 <select

@@ -1,4 +1,4 @@
-export type ZoneCategory = "Montevideo" | "Costa de Oro" | "Otro";
+export type ZoneCategory = "Montevideo" | "Ciudad de la Costa" | "Otro";
 
 export interface ZoneOption {
   label: string;
@@ -28,30 +28,29 @@ export const montevideoBarrios: ZoneOption[] = [
   { label: "Otro barrio", value: "Otro barrio" },
 ];
 
-export const costaDeOroCities: ZoneOption[] = [
-  { label: "Atlántida", value: "Atlántida" },
+export const ciudadDeLaCostaLocalities: ZoneOption[] = [
   { label: "Barra de Carrasco", value: "Barra de Carrasco" },
-  { label: "Ciudad de la Costa", value: "Ciudad de la Costa" },
-  { label: "El Pinar", value: "El Pinar" },
-  { label: "Lagomar", value: "Lagomar" },
-  { label: "Las Toscas", value: "Las Toscas" },
-  { label: "Marindia", value: "Marindia" },
-  { label: "Neptunia", value: "Neptunia" },
-  { label: "Parque del Plata", value: "Parque del Plata" },
-  { label: "Pinamar", value: "Pinamar" },
-  { label: "Salinas", value: "Salinas" },
+  { label: "Parque Carrasco", value: "Parque Carrasco" },
   { label: "San José de Carrasco", value: "San José de Carrasco" },
   { label: "Shangrilá", value: "Shangrilá" },
   { label: "Solymar", value: "Solymar" },
-  { label: "Otra ciudad", value: "Otra ciudad" },
+  { label: "Lomas de Solymar", value: "Lomas de Solymar" },
+  { label: "Colinas de Solymar", value: "Colinas de Solymar" },
+  { label: "Médanos de Solymar", value: "Médanos de Solymar" },
+  { label: "Lagomar", value: "Lagomar" },
+  { label: "El Pinar", value: "El Pinar" },
+  {
+    label: "Otra zona de Ciudad de la Costa",
+    value: "Otra zona de Ciudad de la Costa",
+  },
 ];
 
 export function getOptionsForZone(zone: ZoneCategory): ZoneOption[] {
   switch (zone) {
     case "Montevideo":
       return montevideoBarrios;
-    case "Costa de Oro":
-      return costaDeOroCities;
+    case "Ciudad de la Costa":
+      return ciudadDeLaCostaLocalities;
     default:
       return [];
   }

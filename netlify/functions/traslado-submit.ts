@@ -2,7 +2,7 @@ import type { Context } from "@netlify/functions";
 
 const DEADLINE = new Date("2026-03-25T23:59:59-03:00");
 
-const VALID_ZONES = ["Montevideo", "Costa de Oro", "Otro"] as const;
+const VALID_ZONES = ["Montevideo", "Ciudad de la Costa", "Otro"] as const;
 
 const WHATSAPP_PATTERN = /^\+?[\d\s-]+$/;
 
